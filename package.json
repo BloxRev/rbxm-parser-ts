@@ -1,5 +1,5 @@
 {
-  "name": "@bloxrev/rbxm-parser",
+  "name": "@bloxrev/rbxm-parser-ts",
   "version": "1.1.4",
   "description": "Read and write Roblox files (.rbxm)",
   "main": "./dist/index.js",
@@ -51,11 +51,14 @@
     "fzstd": "^0.1.1",
     "lz4js": "^0.2.0"
   },
+  "publishConfig": {
+    "@bloxrev:registry": "https://npm.pkg.github.com"
+  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fiveman1/rbxm-parser-ts.git"
+    "url": "git+https://github.com/BloxRev/rbxm-parser-ts.git"
   },
   "bugs": {
-    "url": "https://github.com/fiveman1/rbxm-parser-ts/issues"
+    "url": "https://github.com/BloxRev/rbxm-parser-ts/issues"
   }
 }
