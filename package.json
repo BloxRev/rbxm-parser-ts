@@ -1,5 +1,5 @@
 {
-  "name": "@bloxrev/rbxm-parser-ts",
+  "name": "@bloxrev/rbxm-parser",
   "version": "1.1.4",
   "description": "Read and write Roblox files (.rbxm)",
   "main": "./dist/index.js",
