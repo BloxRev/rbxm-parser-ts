@@ -3,13 +3,13 @@
  * Contains the core classes for reading a .rbxm file.
  */
 
-import lz4 from "lz4";
 import * as fzstd from "fzstd";
 import { RobloxFile } from "./roblox_file";
 import { DataType, RobloxValue, CoreInstance, SharedString } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxFileDOM } from "./roblox_file_dom";
 import { ClassMap, EnumMap } from "../generated/generated_types";
 import { RobloxFileByteReader } from "./roblox_file_bytes";
+import { decompress } from "lz4js";
 
 /**
  * This class can read .rbxm bytes to create a RobloxFile.
@@ -157,7 +157,9 @@ export class RobloxFileDOMReader extends RobloxFileDOM
             else
             {
                 // Use lz4 to decompress
-                lz4.decodeBlock(Buffer.from(compressedBytes), byteArray);
+
+                const decompressedData = decompress(compressedBytes)
+                byteArray.set(decompressedData)
             }
         }
         else

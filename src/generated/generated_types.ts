@@ -1,7 +1,7 @@
 /**
 * @author https://github.com/fiveman1
 * Contains generated types for Roblox classes and enums.
-* Generated on 5/14/2025, 5:38:53 PM
+* Generated on 9/9/2025, 7:53:08 PM
 */
 
 import { DataType, CoreInstance, Axes, CFrame, Color3, ColorSequence, ColorSequenceKeypoint, Faces, FontStyle, FontWeight, EnumItem, NumberRange, NumberSequence, 
@@ -332,6 +332,15 @@ export class AppLifecycleObserverService extends Instance {
     }
 }
 
+export class AppRatingPromptService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("AppRatingPromptService");
+        this.Name = "AppRatingPromptService";
+    }
+}
+
 export class AppUpdateService extends Instance {
     public constructor()
     {
@@ -393,6 +402,8 @@ export class AssetService extends Instance {
         this.addClassName("AssetService");
         this.Name = "AssetService";
     }
+    public get AllowInsertFreeAssets() {return this.GetProp("AllowInsertFreeAssets", DataType.Bool);}
+    public set AllowInsertFreeAssets(value) {this.SetProp("AllowInsertFreeAssets", DataType.Bool, value);}
 }
 
 export class Atmosphere extends Instance {
@@ -626,6 +637,8 @@ export class AudioEmitter extends Instance {
     public set AudioInteractionGroup(value) {this.SetProp("AudioInteractionGroup", DataType.String, value);}
     public get DistanceAttenuation() {return this.GetProp("DistanceAttenuation", DataType.String)!;}
     public set DistanceAttenuation(value) {this.SetProp("DistanceAttenuation", DataType.String, value);}
+    public get PositionOverride() {return this.GetProp("PositionOverride", DataType.Referent) as Instance | undefined;}
+    public set PositionOverride(value) {this.SetProp("PositionOverride", DataType.Referent, value);}
     public get SimulationFidelity() {return this.GetProp("SimulationFidelity", DataType.Enum)! as AudioSimulationFidelity;}
     public set SimulationFidelity(value) {this.SetProp("SimulationFidelity", DataType.Enum, value);}
 }
@@ -723,6 +736,27 @@ export class AudioFocusService extends Instance {
     }
 }
 
+export class AudioGate extends Instance {
+    public constructor()
+    {
+        super();
+        this.addClassName("AudioGate");
+        this.Name = "AudioGate";
+        this.Attack = 0.01;
+        this.Bypass = false;
+        this.Release = 0.1;
+        this.Threshold = new NumberRange(-36, -24);
+    }
+    public get Attack() {return this.GetProp("Attack", DataType.Float32)!;}
+    public set Attack(value) {this.SetProp("Attack", DataType.Float32, value);}
+    public get Bypass() {return this.GetProp("Bypass", DataType.Bool)!;}
+    public set Bypass(value) {this.SetProp("Bypass", DataType.Bool, value);}
+    public get Release() {return this.GetProp("Release", DataType.Float32)!;}
+    public set Release(value) {this.SetProp("Release", DataType.Float32, value);}
+    public get Threshold() {return this.GetProp("Threshold", DataType.NumberRange)!;}
+    public set Threshold(value) {this.SetProp("Threshold", DataType.NumberRange, value);}
+}
+
 export class AudioLimiter extends Instance {
     public constructor()
     {
@@ -758,6 +792,8 @@ export class AudioListener extends Instance {
     public set AudioInteractionGroup(value) {this.SetProp("AudioInteractionGroup", DataType.String, value);}
     public get DistanceAttenuation() {return this.GetProp("DistanceAttenuation", DataType.String)!;}
     public set DistanceAttenuation(value) {this.SetProp("DistanceAttenuation", DataType.String, value);}
+    public get PositionOverride() {return this.GetProp("PositionOverride", DataType.Referent) as Instance | undefined;}
+    public set PositionOverride(value) {this.SetProp("PositionOverride", DataType.Referent, value);}
     public get SimulationFidelity() {return this.GetProp("SimulationFidelity", DataType.Enum)! as AudioSimulationFidelity;}
     public set SimulationFidelity(value) {this.SetProp("SimulationFidelity", DataType.Enum, value);}
 }
@@ -789,6 +825,7 @@ export class AudioPlayer extends Instance {
         this.Asset = "";
         this.AssetId = "";
         this.AutoLoad = true;
+        this.IsMutedForCapture = false;
         this.LoopRegion = new NumberRange(0, 60000);
         this.Looping = false;
         this.PlaybackRegion = new NumberRange(0, 60000);
@@ -802,8 +839,12 @@ export class AudioPlayer extends Instance {
     public get AssetId() {return this.GetProp("AssetId", DataType.String)!;}
     /**@deprecated Deprecated by Roblox*/
     public set AssetId(value) {this.SetProp("AssetId", DataType.String, value);}
+    public get AudioContent() {return this.GetProp("AudioContent", DataType.String);}
+    public set AudioContent(value) {this.SetProp("AudioContent", DataType.String, value);}
     public get AutoLoad() {return this.GetProp("AutoLoad", DataType.Bool)!;}
     public set AutoLoad(value) {this.SetProp("AutoLoad", DataType.Bool, value);}
+    public get IsMutedForCapture() {return this.GetProp("IsMutedForCapture", DataType.Bool)!;}
+    public set IsMutedForCapture(value) {this.SetProp("IsMutedForCapture", DataType.Bool, value);}
     public get LoopRegion() {return this.GetProp("LoopRegion", DataType.NumberRange)!;}
     public set LoopRegion(value) {this.SetProp("LoopRegion", DataType.NumberRange, value);}
     public get Looping() {return this.GetProp("Looping", DataType.Bool)!;}
@@ -916,6 +957,21 @@ export class AudioSearchParams extends Instance {
     public set Title(value) {this.SetProp("Title", DataType.String, value);}
 }
 
+export class AudioSpeechToText extends Instance {
+    public constructor()
+    {
+        super();
+        this.addClassName("AudioSpeechToText");
+        this.Name = "AudioSpeechToText";
+        this.Enabled = false;
+        this.Text = "";
+    }
+    public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
+    public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get Text() {return this.GetProp("Text", DataType.String)!;}
+    public set Text(value) {this.SetProp("Text", DataType.String, value);}
+}
+
 export class AudioTextToSpeech extends Instance {
     public constructor()
     {
@@ -949,6 +1005,36 @@ export class AudioTextToSpeech extends Instance {
     public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
 }
 
+export class AudioTremolo extends Instance {
+    public constructor()
+    {
+        super();
+        this.addClassName("AudioTremolo");
+        this.Name = "AudioTremolo";
+        this.Bypass = false;
+        this.Depth = 1;
+        this.Duty = 0.5;
+        this.Frequency = 5;
+        this.Shape = 0;
+        this.Skew = 0;
+        this.Square = 0;
+    }
+    public get Bypass() {return this.GetProp("Bypass", DataType.Bool)!;}
+    public set Bypass(value) {this.SetProp("Bypass", DataType.Bool, value);}
+    public get Depth() {return this.GetProp("Depth", DataType.Float32)!;}
+    public set Depth(value) {this.SetProp("Depth", DataType.Float32, value);}
+    public get Duty() {return this.GetProp("Duty", DataType.Float32)!;}
+    public set Duty(value) {this.SetProp("Duty", DataType.Float32, value);}
+    public get Frequency() {return this.GetProp("Frequency", DataType.Float32)!;}
+    public set Frequency(value) {this.SetProp("Frequency", DataType.Float32, value);}
+    public get Shape() {return this.GetProp("Shape", DataType.Float32)!;}
+    public set Shape(value) {this.SetProp("Shape", DataType.Float32, value);}
+    public get Skew() {return this.GetProp("Skew", DataType.Float32)!;}
+    public set Skew(value) {this.SetProp("Skew", DataType.Float32, value);}
+    public get Square() {return this.GetProp("Square", DataType.Float32)!;}
+    public set Square(value) {this.SetProp("Square", DataType.Float32, value);}
+}
+
 /**@deprecated Deprecated by Roblox*/
 export class AuroraScriptService extends Instance {
     public constructor()
@@ -967,6 +1053,14 @@ export class AuroraService extends Instance {
         this.addClassName("AuroraService");
         this.Name = "AuroraService";
     }
+    public get HashRoundingPoint() {return this.GetProp("HashRoundingPoint", DataType.Float64);}
+    public set HashRoundingPoint(value) {this.SetProp("HashRoundingPoint", DataType.Float64, value);}
+    public get IgnoreRotation() {return this.GetProp("IgnoreRotation", DataType.Bool);}
+    public set IgnoreRotation(value) {this.SetProp("IgnoreRotation", DataType.Bool, value);}
+    public get LockStepIdOffset() {return this.GetProp("LockStepIdOffset", DataType.Bool);}
+    public set LockStepIdOffset(value) {this.SetProp("LockStepIdOffset", DataType.Bool, value);}
+    public get RollbackOffset() {return this.GetProp("RollbackOffset", DataType.Int32);}
+    public set RollbackOffset(value) {this.SetProp("RollbackOffset", DataType.Int32, value);}
 }
 
 export class AvatarAccessoryRules extends Instance {
@@ -1129,24 +1223,32 @@ export class AvatarBodyRules extends Instance {
         this.BuildMode = AvatarSettingsBuildMode.PlayerChoice;
         this.CustomBodyBundleId = BigInt(0);
         this.CustomBodyType = AvatarSettingsCustomBodyType.AvatarReference;
-        this.CustomBodyTypeScale = new NumberRange(0, 100);
+        this.CustomBodyTypeScale = new NumberRange(0, 1);
+        this.CustomEyebrowEnabled = false;
+        this.CustomEyebrowId = BigInt(0);
+        this.CustomEyelashEnabled = false;
+        this.CustomEyelashId = BigInt(0);
+        this.CustomFaceEnabled = false;
+        this.CustomFaceId = BigInt(0);
         this.CustomHeadEnabled = false;
         this.CustomHeadId = BigInt(0);
-        this.CustomHeadScale = new NumberRange(95, 100);
-        this.CustomHeight = new NumberRange(6, 6);
-        this.CustomHeightScale = new NumberRange(90, 105);
+        this.CustomHeadScale = new NumberRange(0.95, 1);
+        this.CustomHeight = new NumberRange(5.5, 5.5);
+        this.CustomHeightScale = new NumberRange(0.9, 1.05);
         this.CustomLeftArmEnabled = false;
         this.CustomLeftArmId = BigInt(0);
         this.CustomLeftLegEnabled = false;
         this.CustomLeftLegId = BigInt(0);
-        this.CustomProportionsScale = new NumberRange(0, 100);
+        this.CustomMoodEnabled = false;
+        this.CustomMoodId = BigInt(0);
+        this.CustomProportionsScale = new NumberRange(0, 1);
         this.CustomRightArmEnabled = false;
         this.CustomRightArmId = BigInt(0);
         this.CustomRightLegEnabled = false;
         this.CustomRightLegId = BigInt(0);
         this.CustomTorsoEnabled = false;
         this.CustomTorsoId = BigInt(0);
-        this.CustomWidthScale = new NumberRange(70, 100);
+        this.CustomWidthScale = new NumberRange(0.7, 1);
         this.KeepPlayerHead = true;
         this.ScaleMode = AvatarSettingsScaleMode.PlayerChoice;
     }
@@ -1154,14 +1256,24 @@ export class AvatarBodyRules extends Instance {
     public set AppearanceMode(value) {this.SetProp("AppearanceMode", DataType.Enum, value);}
     public get BuildMode() {return this.GetProp("BuildMode", DataType.Enum)! as AvatarSettingsBuildMode;}
     public set BuildMode(value) {this.SetProp("BuildMode", DataType.Enum, value);}
-    public get CustomBodyAvatarReference() {return this.GetProp("CustomBodyAvatarReference", DataType.Referent) as Instance | undefined;}
-    public set CustomBodyAvatarReference(value) {this.SetProp("CustomBodyAvatarReference", DataType.Referent, value);}
     public get CustomBodyBundleId() {return this.GetProp("CustomBodyBundleId", DataType.Int64)!;}
     public set CustomBodyBundleId(value) {this.SetProp("CustomBodyBundleId", DataType.Int64, value);}
     public get CustomBodyType() {return this.GetProp("CustomBodyType", DataType.Enum)! as AvatarSettingsCustomBodyType;}
     public set CustomBodyType(value) {this.SetProp("CustomBodyType", DataType.Enum, value);}
     public get CustomBodyTypeScale() {return this.GetProp("CustomBodyTypeScale", DataType.NumberRange)!;}
     public set CustomBodyTypeScale(value) {this.SetProp("CustomBodyTypeScale", DataType.NumberRange, value);}
+    public get CustomEyebrowEnabled() {return this.GetProp("CustomEyebrowEnabled", DataType.Bool)!;}
+    public set CustomEyebrowEnabled(value) {this.SetProp("CustomEyebrowEnabled", DataType.Bool, value);}
+    public get CustomEyebrowId() {return this.GetProp("CustomEyebrowId", DataType.Int64)!;}
+    public set CustomEyebrowId(value) {this.SetProp("CustomEyebrowId", DataType.Int64, value);}
+    public get CustomEyelashEnabled() {return this.GetProp("CustomEyelashEnabled", DataType.Bool)!;}
+    public set CustomEyelashEnabled(value) {this.SetProp("CustomEyelashEnabled", DataType.Bool, value);}
+    public get CustomEyelashId() {return this.GetProp("CustomEyelashId", DataType.Int64)!;}
+    public set CustomEyelashId(value) {this.SetProp("CustomEyelashId", DataType.Int64, value);}
+    public get CustomFaceEnabled() {return this.GetProp("CustomFaceEnabled", DataType.Bool)!;}
+    public set CustomFaceEnabled(value) {this.SetProp("CustomFaceEnabled", DataType.Bool, value);}
+    public get CustomFaceId() {return this.GetProp("CustomFaceId", DataType.Int64)!;}
+    public set CustomFaceId(value) {this.SetProp("CustomFaceId", DataType.Int64, value);}
     public get CustomHeadEnabled() {return this.GetProp("CustomHeadEnabled", DataType.Bool)!;}
     public set CustomHeadEnabled(value) {this.SetProp("CustomHeadEnabled", DataType.Bool, value);}
     public get CustomHeadId() {return this.GetProp("CustomHeadId", DataType.Int64)!;}
@@ -1180,6 +1292,10 @@ export class AvatarBodyRules extends Instance {
     public set CustomLeftLegEnabled(value) {this.SetProp("CustomLeftLegEnabled", DataType.Bool, value);}
     public get CustomLeftLegId() {return this.GetProp("CustomLeftLegId", DataType.Int64)!;}
     public set CustomLeftLegId(value) {this.SetProp("CustomLeftLegId", DataType.Int64, value);}
+    public get CustomMoodEnabled() {return this.GetProp("CustomMoodEnabled", DataType.Bool)!;}
+    public set CustomMoodEnabled(value) {this.SetProp("CustomMoodEnabled", DataType.Bool, value);}
+    public get CustomMoodId() {return this.GetProp("CustomMoodId", DataType.Int64)!;}
+    public set CustomMoodId(value) {this.SetProp("CustomMoodId", DataType.Int64, value);}
     public get CustomProportionsScale() {return this.GetProp("CustomProportionsScale", DataType.NumberRange)!;}
     public set CustomProportionsScale(value) {this.SetProp("CustomProportionsScale", DataType.NumberRange, value);}
     public get CustomRightArmEnabled() {return this.GetProp("CustomRightArmEnabled", DataType.Bool)!;}
@@ -1309,7 +1425,7 @@ export class AvatarCollisionRules extends Instance {
         this.Name = "AvatarCollisionRules";
         this.CollisionMode = AvatarSettingsCollisionMode.Default;
         this.HitAndTouchDetectionMode = AvatarSettingsHitAndTouchDetectionMode.UseParts;
-        this.LegacyCollisionMode = AvatarSettingsLegacyCollisionMode.R6Colliders;
+        this.LegacyCollisionMode = AvatarSettingsLegacyCollisionMode.InnerBoxColliders;
         this.SingleColliderSize = new Vector3(2, 4, 1);
     }
     public get CollisionMode() {return this.GetProp("CollisionMode", DataType.Enum)! as AvatarSettingsCollisionMode;}
@@ -1346,15 +1462,6 @@ export class AvatarImportService extends Instance {
         super(true);
         this.addClassName("AvatarImportService");
         this.Name = "AvatarImportService";
-    }
-}
-
-export class AvatarPreloader extends Instance {
-    public constructor()
-    {
-        super(true);
-        this.addClassName("AvatarPreloader");
-        this.Name = "AvatarPreloader";
     }
 }
 
@@ -1495,10 +1602,6 @@ export abstract class BaseWrap extends Instance {
     public set HSRMeshIdData(value) {this.SetProp("HSRMeshIdData", DataType.SharedString, value);}
     public get ImportOrigin() {return this.GetProp("ImportOrigin", DataType.CFrame)!;}
     public set ImportOrigin(value) {this.SetProp("ImportOrigin", DataType.CFrame, value);}
-    public get MaxSize() {return this.GetProp("MaxSize", DataType.Vector3);}
-    public set MaxSize(value) {this.SetProp("MaxSize", DataType.Vector3, value);}
-    public get Offset() {return this.GetProp("Offset", DataType.Vector3);}
-    public set Offset(value) {this.SetProp("Offset", DataType.Vector3, value);}
     public get TemporaryCageMeshId() {return this.GetProp("TemporaryCageMeshId", DataType.String);}
     public set TemporaryCageMeshId(value) {this.SetProp("TemporaryCageMeshId", DataType.String, value);}
 }
@@ -1888,6 +1991,15 @@ export class MeshContentProvider extends CacheableContentProvider {
     }
 }
 
+export class SlimContentProvider extends CacheableContentProvider {
+    public constructor()
+    {
+        super();
+        this.addClassName("SlimContentProvider");
+        this.Name = "SlimContentProvider";
+    }
+}
+
 export class SolidModelContentProvider extends CacheableContentProvider {
     public constructor()
     {
@@ -1921,6 +2033,15 @@ export class ChangeHistoryService extends Instance {
         super(true);
         this.addClassName("ChangeHistoryService");
         this.Name = "ChangeHistoryService";
+    }
+}
+
+export class ChangeHistoryStreamingService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("ChangeHistoryStreamingService");
+        this.Name = "ChangeHistoryStreamingService";
     }
 }
 
@@ -2080,6 +2201,8 @@ export class ClickDetector extends Instance {
     }
     public get CursorIcon() {return this.GetProp("CursorIcon", DataType.String)!;}
     public set CursorIcon(value) {this.SetProp("CursorIcon", DataType.String, value);}
+    public get CursorIconContent() {return this.GetProp("CursorIconContent", DataType.String);}
+    public set CursorIconContent(value) {this.SetProp("CursorIconContent", DataType.String, value);}
     public get MaxActivationDistance() {return this.GetProp("MaxActivationDistance", DataType.Float32)!;}
     public set MaxActivationDistance(value) {this.SetProp("MaxActivationDistance", DataType.Float32, value);}
 }
@@ -2114,6 +2237,8 @@ export class DragDetector extends ClickDetector {
     }
     public get ActivatedCursorIcon() {return this.GetProp("ActivatedCursorIcon", DataType.String)!;}
     public set ActivatedCursorIcon(value) {this.SetProp("ActivatedCursorIcon", DataType.String, value);}
+    public get ActivatedCursorIconContent() {return this.GetProp("ActivatedCursorIconContent", DataType.String);}
+    public set ActivatedCursorIconContent(value) {this.SetProp("ActivatedCursorIconContent", DataType.String, value);}
     public get ApplyAtCenterOfMass() {return this.GetProp("ApplyAtCenterOfMass", DataType.Bool)!;}
     public set ApplyAtCenterOfMass(value) {this.SetProp("ApplyAtCenterOfMass", DataType.Bool, value);}
     public get DragFrame() {return this.GetProp("DragFrame", DataType.CFrame)!;}
@@ -2212,15 +2337,6 @@ export class CollectionService extends Instance {
         super(true);
         this.addClassName("CollectionService");
         this.Name = "CollectionService";
-    }
-}
-
-export class CommandService extends Instance {
-    public constructor()
-    {
-        super(true);
-        this.addClassName("CommandService");
-        this.Name = "CommandService";
     }
 }
 
@@ -3576,6 +3692,15 @@ export class ExampleService extends Instance {
     }
 }
 
+export class ExampleV2Service extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("ExampleV2Service");
+        this.Name = "ExampleV2Service";
+    }
+}
+
 export class ExperienceAuthService extends Instance {
     public constructor()
     {
@@ -3630,6 +3755,15 @@ export class ExperienceStateCaptureService extends Instance {
         super(true);
         this.addClassName("ExperienceStateCaptureService");
         this.Name = "ExperienceStateCaptureService";
+    }
+}
+
+export class ExperienceStateRecordingService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("ExperienceStateRecordingService");
+        this.Name = "ExperienceStateRecordingService";
     }
 }
 
@@ -3717,14 +3851,33 @@ export class Decal extends FaceInstance {
         this.addClassName("Decal");
         this.Name = "Decal";
         this.Color3 = Color3.FromRGB(255, 255, 255);
+        this.MetalnessMap = "";
+        this.NormalMap = "";
+        this.RoughnessMap = "";
         this.Shiny = 20;
         this.Specular = 0;
         this.Texture = "";
+        this.TexturePack = "";
+        this.TexturePackMetadata = "";
         this.Transparency = 0;
+        this.UVOffset = new Vector2(0, 0);
+        this.UVScale = new Vector2(1, 1);
         this.ZIndex = 1;
     }
     public get Color3() {return this.GetProp("Color3", DataType.Color3)!;}
     public set Color3(value) {this.SetProp("Color3", DataType.Color3, value);}
+    public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String)!;}
+    public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
+    public get MetalnessMapContent() {return this.GetProp("MetalnessMapContent", DataType.String);}
+    public set MetalnessMapContent(value) {this.SetProp("MetalnessMapContent", DataType.String, value);}
+    public get NormalMap() {return this.GetProp("NormalMap", DataType.String)!;}
+    public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
+    public get NormalMapContent() {return this.GetProp("NormalMapContent", DataType.String);}
+    public set NormalMapContent(value) {this.SetProp("NormalMapContent", DataType.String, value);}
+    public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String)!;}
+    public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
+    public get RoughnessMapContent() {return this.GetProp("RoughnessMapContent", DataType.String);}
+    public set RoughnessMapContent(value) {this.SetProp("RoughnessMapContent", DataType.String, value);}
     /**@deprecated Deprecated by Roblox*/
     public get Shiny() {return this.GetProp("Shiny", DataType.Float32)!;}
     /**@deprecated Deprecated by Roblox*/
@@ -3737,8 +3890,16 @@ export class Decal extends FaceInstance {
     public set Texture(value) {this.SetProp("Texture", DataType.String, value);}
     public get TextureContent() {return this.GetProp("TextureContent", DataType.String);}
     public set TextureContent(value) {this.SetProp("TextureContent", DataType.String, value);}
+    public get TexturePack() {return this.GetProp("TexturePack", DataType.String)!;}
+    public set TexturePack(value) {this.SetProp("TexturePack", DataType.String, value);}
+    public get TexturePackMetadata() {return this.GetProp("TexturePackMetadata", DataType.String)!;}
+    public set TexturePackMetadata(value) {this.SetProp("TexturePackMetadata", DataType.String, value);}
     public get Transparency() {return this.GetProp("Transparency", DataType.Float32)!;}
     public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
+    public get UVOffset() {return this.GetProp("UVOffset", DataType.Vector2)!;}
+    public set UVOffset(value) {this.SetProp("UVOffset", DataType.Vector2, value);}
+    public get UVScale() {return this.GetProp("UVScale", DataType.Vector2)!;}
+    public set UVScale(value) {this.SetProp("UVScale", DataType.Vector2, value);}
     public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32)!;}
     public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
 }
@@ -3843,15 +4004,6 @@ export class FeatureRestrictionManager extends Instance {
     }
 }
 
-export class FeedService extends Instance {
-    public constructor()
-    {
-        super(true);
-        this.addClassName("FeedService");
-        this.Name = "FeedService";
-    }
-}
-
 export class Fire extends Instance {
     public constructor()
     {
@@ -3899,7 +4051,7 @@ export class FloatCurve extends Instance {
         super();
         this.addClassName("FloatCurve");
         this.Name = "FloatCurve";
-        this.ValuesAndTimes = "\u0001";
+        this.ValuesAndTimes = "\u0002";
     }
     public get ValuesAndTimes() {return this.GetProp("ValuesAndTimes", DataType.String)!;}
     public set ValuesAndTimes(value) {this.SetProp("ValuesAndTimes", DataType.String, value);}
@@ -4057,17 +4209,6 @@ export class GetTextBoundsParams extends Instance {
     public set Text(value) {this.SetProp("Text", DataType.String, value);}
     public get Width() {return this.GetProp("Width", DataType.Float32)!;}
     public set Width(value) {this.SetProp("Width", DataType.Float32, value);}
-}
-
-export class GoogleAnalyticsConfiguration extends Instance {
-    public constructor()
-    {
-        super(true);
-        this.addClassName("GoogleAnalyticsConfiguration");
-        this.Name = "GoogleAnalyticsConfiguration";
-    }
-    public get GaID() {return this.GetProp("gaID", DataType.String);}
-    public set GaID(value) {this.SetProp("gaID", DataType.String, value);}
 }
 
 export class GroupService extends Instance {
@@ -4570,6 +4711,8 @@ export class ScrollingFrame extends GuiObject {
     public set AutomaticCanvasSize(value) {this.SetProp("AutomaticCanvasSize", DataType.Enum, value);}
     public get BottomImage() {return this.GetProp("BottomImage", DataType.String)!;}
     public set BottomImage(value) {this.SetProp("BottomImage", DataType.String, value);}
+    public get BottomImageContent() {return this.GetProp("BottomImageContent", DataType.String);}
+    public set BottomImageContent(value) {this.SetProp("BottomImageContent", DataType.String, value);}
     public get CanvasPosition() {return this.GetProp("CanvasPosition", DataType.Vector2)!;}
     public set CanvasPosition(value) {this.SetProp("CanvasPosition", DataType.Vector2, value);}
     public get CanvasSize() {return this.GetProp("CanvasSize", DataType.UDim2)!;}
@@ -4580,6 +4723,8 @@ export class ScrollingFrame extends GuiObject {
     public set HorizontalScrollBarInset(value) {this.SetProp("HorizontalScrollBarInset", DataType.Enum, value);}
     public get MidImage() {return this.GetProp("MidImage", DataType.String)!;}
     public set MidImage(value) {this.SetProp("MidImage", DataType.String, value);}
+    public get MidImageContent() {return this.GetProp("MidImageContent", DataType.String);}
+    public set MidImageContent(value) {this.SetProp("MidImageContent", DataType.String, value);}
     public get ScrollBarImageColor3() {return this.GetProp("ScrollBarImageColor3", DataType.Color3)!;}
     public set ScrollBarImageColor3(value) {this.SetProp("ScrollBarImageColor3", DataType.Color3, value);}
     public get ScrollBarImageTransparency() {return this.GetProp("ScrollBarImageTransparency", DataType.Float32)!;}
@@ -4592,6 +4737,8 @@ export class ScrollingFrame extends GuiObject {
     public set ScrollingEnabled(value) {this.SetProp("ScrollingEnabled", DataType.Bool, value);}
     public get TopImage() {return this.GetProp("TopImage", DataType.String)!;}
     public set TopImage(value) {this.SetProp("TopImage", DataType.String, value);}
+    public get TopImageContent() {return this.GetProp("TopImageContent", DataType.String);}
+    public set TopImageContent(value) {this.SetProp("TopImageContent", DataType.String, value);}
     public get VerticalScrollBarInset() {return this.GetProp("VerticalScrollBarInset", DataType.Enum)! as ScrollBarInset;}
     public set VerticalScrollBarInset(value) {this.SetProp("VerticalScrollBarInset", DataType.Enum, value);}
     public get VerticalScrollBarPosition() {return this.GetProp("VerticalScrollBarPosition", DataType.Enum)! as VerticalScrollBarPosition;}
@@ -5101,9 +5248,12 @@ export class BoxHandleAdornment extends HandleAdornment {
         super();
         this.addClassName("BoxHandleAdornment");
         this.Name = "BoxHandleAdornment";
+        this.Shading = AdornShading.Default;
         this.Size = new Vector3(1, 1, 1);
         this.Color3 = Color3.FromRGB(13, 105, 172);
     }
+    public get Shading() {return this.GetProp("Shading", DataType.Enum)! as AdornShading;}
+    public set Shading(value) {this.SetProp("Shading", DataType.Enum, value);}
     public get Size() {return this.GetProp("Size", DataType.Vector3)!;}
     public set Size(value) {this.SetProp("Size", DataType.Vector3, value);}
 }
@@ -5115,13 +5265,19 @@ export class ConeHandleAdornment extends HandleAdornment {
         this.addClassName("ConeHandleAdornment");
         this.Name = "ConeHandleAdornment";
         this.Height = 2;
+        this.Hollow = false;
         this.Radius = 0.5;
+        this.Shading = AdornShading.Default;
         this.Color3 = Color3.FromRGB(13, 105, 172);
     }
     public get Height() {return this.GetProp("Height", DataType.Float32)!;}
     public set Height(value) {this.SetProp("Height", DataType.Float32, value);}
+    public get Hollow() {return this.GetProp("Hollow", DataType.Bool)!;}
+    public set Hollow(value) {this.SetProp("Hollow", DataType.Bool, value);}
     public get Radius() {return this.GetProp("Radius", DataType.Float32)!;}
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
+    public get Shading() {return this.GetProp("Shading", DataType.Enum)! as AdornShading;}
+    public set Shading(value) {this.SetProp("Shading", DataType.Enum, value);}
 }
 
 export class CylinderHandleAdornment extends HandleAdornment {
@@ -5134,6 +5290,7 @@ export class CylinderHandleAdornment extends HandleAdornment {
         this.Height = 1;
         this.InnerRadius = 0;
         this.Radius = 1;
+        this.Shading = AdornShading.Default;
         this.Color3 = Color3.FromRGB(13, 105, 172);
     }
     public get Angle() {return this.GetProp("Angle", DataType.Float32)!;}
@@ -5144,6 +5301,8 @@ export class CylinderHandleAdornment extends HandleAdornment {
     public set InnerRadius(value) {this.SetProp("InnerRadius", DataType.Float32, value);}
     public get Radius() {return this.GetProp("Radius", DataType.Float32)!;}
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
+    public get Shading() {return this.GetProp("Shading", DataType.Enum)! as AdornShading;}
+    public set Shading(value) {this.SetProp("Shading", DataType.Enum, value);}
 }
 
 export class ImageHandleAdornment extends HandleAdornment {
@@ -5185,10 +5344,13 @@ export class SphereHandleAdornment extends HandleAdornment {
         this.addClassName("SphereHandleAdornment");
         this.Name = "SphereHandleAdornment";
         this.Radius = 1;
+        this.Shading = AdornShading.Default;
         this.Color3 = Color3.FromRGB(13, 105, 172);
     }
     public get Radius() {return this.GetProp("Radius", DataType.Float32)!;}
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
+    public get Shading() {return this.GetProp("Shading", DataType.Enum)! as AdornShading;}
+    public set Shading(value) {this.SetProp("Shading", DataType.Enum, value);}
 }
 
 export class WireframeHandleAdornment extends HandleAdornment {
@@ -5386,6 +5548,108 @@ export class GuidRegistryService extends Instance {
     }
 }
 
+export class HandRigDescription extends Instance {
+    public constructor()
+    {
+        super();
+        this.addClassName("HandRigDescription");
+        this.Name = "HandRigDescription";
+        this.IndexRange = new Vector3(0, 0, 0);
+        this.IndexSize = 0;
+        this.MiddleRange = new Vector3(0, 0, 0);
+        this.MiddleSize = 0;
+        this.PinkyRange = new Vector3(0, 0, 0);
+        this.PinkySize = 0;
+        this.RingRange = new Vector3(0, 0, 0);
+        this.RingSize = 0;
+        this.Side = HandRigDescriptionSide.None;
+        this.ThumbRange = new Vector3(0, 0, 0);
+        this.ThumbSize = 0;
+    }
+    public get Index1() {return this.GetProp("Index1", DataType.Referent) as Instance | undefined;}
+    public set Index1(value) {this.SetProp("Index1", DataType.Referent, value);}
+    public get Index1TposeAdjustment() {return this.GetProp("Index1TposeAdjustment", DataType.CFrame);}
+    public set Index1TposeAdjustment(value) {this.SetProp("Index1TposeAdjustment", DataType.CFrame, value);}
+    public get Index2() {return this.GetProp("Index2", DataType.Referent) as Instance | undefined;}
+    public set Index2(value) {this.SetProp("Index2", DataType.Referent, value);}
+    public get Index2TposeAdjustment() {return this.GetProp("Index2TposeAdjustment", DataType.CFrame);}
+    public set Index2TposeAdjustment(value) {this.SetProp("Index2TposeAdjustment", DataType.CFrame, value);}
+    public get Index3() {return this.GetProp("Index3", DataType.Referent) as Instance | undefined;}
+    public set Index3(value) {this.SetProp("Index3", DataType.Referent, value);}
+    public get Index3TposeAdjustment() {return this.GetProp("Index3TposeAdjustment", DataType.CFrame);}
+    public set Index3TposeAdjustment(value) {this.SetProp("Index3TposeAdjustment", DataType.CFrame, value);}
+    public get IndexRange() {return this.GetProp("IndexRange", DataType.Vector3)!;}
+    public set IndexRange(value) {this.SetProp("IndexRange", DataType.Vector3, value);}
+    public get IndexSize() {return this.GetProp("IndexSize", DataType.Float32)!;}
+    public set IndexSize(value) {this.SetProp("IndexSize", DataType.Float32, value);}
+    public get Middle1() {return this.GetProp("Middle1", DataType.Referent) as Instance | undefined;}
+    public set Middle1(value) {this.SetProp("Middle1", DataType.Referent, value);}
+    public get Middle1TposeAdjustment() {return this.GetProp("Middle1TposeAdjustment", DataType.CFrame);}
+    public set Middle1TposeAdjustment(value) {this.SetProp("Middle1TposeAdjustment", DataType.CFrame, value);}
+    public get Middle2() {return this.GetProp("Middle2", DataType.Referent) as Instance | undefined;}
+    public set Middle2(value) {this.SetProp("Middle2", DataType.Referent, value);}
+    public get Middle2TposeAdjustment() {return this.GetProp("Middle2TposeAdjustment", DataType.CFrame);}
+    public set Middle2TposeAdjustment(value) {this.SetProp("Middle2TposeAdjustment", DataType.CFrame, value);}
+    public get Middle3() {return this.GetProp("Middle3", DataType.Referent) as Instance | undefined;}
+    public set Middle3(value) {this.SetProp("Middle3", DataType.Referent, value);}
+    public get Middle3TposeAdjustment() {return this.GetProp("Middle3TposeAdjustment", DataType.CFrame);}
+    public set Middle3TposeAdjustment(value) {this.SetProp("Middle3TposeAdjustment", DataType.CFrame, value);}
+    public get MiddleRange() {return this.GetProp("MiddleRange", DataType.Vector3)!;}
+    public set MiddleRange(value) {this.SetProp("MiddleRange", DataType.Vector3, value);}
+    public get MiddleSize() {return this.GetProp("MiddleSize", DataType.Float32)!;}
+    public set MiddleSize(value) {this.SetProp("MiddleSize", DataType.Float32, value);}
+    public get Pinky1() {return this.GetProp("Pinky1", DataType.Referent) as Instance | undefined;}
+    public set Pinky1(value) {this.SetProp("Pinky1", DataType.Referent, value);}
+    public get Pinky1TposeAdjustment() {return this.GetProp("Pinky1TposeAdjustment", DataType.CFrame);}
+    public set Pinky1TposeAdjustment(value) {this.SetProp("Pinky1TposeAdjustment", DataType.CFrame, value);}
+    public get Pinky2() {return this.GetProp("Pinky2", DataType.Referent) as Instance | undefined;}
+    public set Pinky2(value) {this.SetProp("Pinky2", DataType.Referent, value);}
+    public get Pinky2TposeAdjustment() {return this.GetProp("Pinky2TposeAdjustment", DataType.CFrame);}
+    public set Pinky2TposeAdjustment(value) {this.SetProp("Pinky2TposeAdjustment", DataType.CFrame, value);}
+    public get Pinky3() {return this.GetProp("Pinky3", DataType.Referent) as Instance | undefined;}
+    public set Pinky3(value) {this.SetProp("Pinky3", DataType.Referent, value);}
+    public get Pinky3TposeAdjustment() {return this.GetProp("Pinky3TposeAdjustment", DataType.CFrame);}
+    public set Pinky3TposeAdjustment(value) {this.SetProp("Pinky3TposeAdjustment", DataType.CFrame, value);}
+    public get PinkyRange() {return this.GetProp("PinkyRange", DataType.Vector3)!;}
+    public set PinkyRange(value) {this.SetProp("PinkyRange", DataType.Vector3, value);}
+    public get PinkySize() {return this.GetProp("PinkySize", DataType.Float32)!;}
+    public set PinkySize(value) {this.SetProp("PinkySize", DataType.Float32, value);}
+    public get Ring1() {return this.GetProp("Ring1", DataType.Referent) as Instance | undefined;}
+    public set Ring1(value) {this.SetProp("Ring1", DataType.Referent, value);}
+    public get Ring1TposeAdjustment() {return this.GetProp("Ring1TposeAdjustment", DataType.CFrame);}
+    public set Ring1TposeAdjustment(value) {this.SetProp("Ring1TposeAdjustment", DataType.CFrame, value);}
+    public get Ring2() {return this.GetProp("Ring2", DataType.Referent) as Instance | undefined;}
+    public set Ring2(value) {this.SetProp("Ring2", DataType.Referent, value);}
+    public get Ring2TposeAdjustment() {return this.GetProp("Ring2TposeAdjustment", DataType.CFrame);}
+    public set Ring2TposeAdjustment(value) {this.SetProp("Ring2TposeAdjustment", DataType.CFrame, value);}
+    public get Ring3() {return this.GetProp("Ring3", DataType.Referent) as Instance | undefined;}
+    public set Ring3(value) {this.SetProp("Ring3", DataType.Referent, value);}
+    public get Ring3TposeAdjustment() {return this.GetProp("Ring3TposeAdjustment", DataType.CFrame);}
+    public set Ring3TposeAdjustment(value) {this.SetProp("Ring3TposeAdjustment", DataType.CFrame, value);}
+    public get RingRange() {return this.GetProp("RingRange", DataType.Vector3)!;}
+    public set RingRange(value) {this.SetProp("RingRange", DataType.Vector3, value);}
+    public get RingSize() {return this.GetProp("RingSize", DataType.Float32)!;}
+    public set RingSize(value) {this.SetProp("RingSize", DataType.Float32, value);}
+    public get Side() {return this.GetProp("Side", DataType.Enum)! as HandRigDescriptionSide;}
+    public set Side(value) {this.SetProp("Side", DataType.Enum, value);}
+    public get Thumb1() {return this.GetProp("Thumb1", DataType.Referent) as Instance | undefined;}
+    public set Thumb1(value) {this.SetProp("Thumb1", DataType.Referent, value);}
+    public get Thumb1TposeAdjustment() {return this.GetProp("Thumb1TposeAdjustment", DataType.CFrame);}
+    public set Thumb1TposeAdjustment(value) {this.SetProp("Thumb1TposeAdjustment", DataType.CFrame, value);}
+    public get Thumb2() {return this.GetProp("Thumb2", DataType.Referent) as Instance | undefined;}
+    public set Thumb2(value) {this.SetProp("Thumb2", DataType.Referent, value);}
+    public get Thumb2TposeAdjustment() {return this.GetProp("Thumb2TposeAdjustment", DataType.CFrame);}
+    public set Thumb2TposeAdjustment(value) {this.SetProp("Thumb2TposeAdjustment", DataType.CFrame, value);}
+    public get Thumb3() {return this.GetProp("Thumb3", DataType.Referent) as Instance | undefined;}
+    public set Thumb3(value) {this.SetProp("Thumb3", DataType.Referent, value);}
+    public get Thumb3TposeAdjustment() {return this.GetProp("Thumb3TposeAdjustment", DataType.CFrame);}
+    public set Thumb3TposeAdjustment(value) {this.SetProp("Thumb3TposeAdjustment", DataType.CFrame, value);}
+    public get ThumbRange() {return this.GetProp("ThumbRange", DataType.Vector3)!;}
+    public set ThumbRange(value) {this.SetProp("ThumbRange", DataType.Vector3, value);}
+    public get ThumbSize() {return this.GetProp("ThumbSize", DataType.Float32)!;}
+    public set ThumbSize(value) {this.SetProp("ThumbSize", DataType.Float32, value);}
+}
+
 export class HapticEffect extends Instance {
     public constructor()
     {
@@ -5396,6 +5660,7 @@ export class HapticEffect extends Instance {
         this.Position = new Vector3(0, 0, 0);
         this.Radius = 3;
         this.Type = HapticEffectType.UIClick;
+        this.WaveformData = "";
     }
     public get Looped() {return this.GetProp("Looped", DataType.Bool)!;}
     public set Looped(value) {this.SetProp("Looped", DataType.Bool, value);}
@@ -5405,8 +5670,12 @@ export class HapticEffect extends Instance {
     public set Radius(value) {this.SetProp("Radius", DataType.Float32, value);}
     public get Type() {return this.GetProp("Type", DataType.Enum)! as HapticEffectType;}
     public set Type(value) {this.SetProp("Type", DataType.Enum, value);}
+    /**@deprecated Deprecated by Roblox*/
     public get Waveform() {return this.GetProp("Waveform", DataType.Referent) as FloatCurve | undefined;}
+    /**@deprecated Deprecated by Roblox*/
     public set Waveform(value) {this.SetProp("Waveform", DataType.Referent, value);}
+    public get WaveformData() {return this.GetProp("WaveformData", DataType.String)!;}
+    public set WaveformData(value) {this.SetProp("WaveformData", DataType.String, value);}
 }
 
 export class HapticService extends Instance {
@@ -5415,6 +5684,15 @@ export class HapticService extends Instance {
         super(true);
         this.addClassName("HapticService");
         this.Name = "HapticService";
+    }
+}
+
+export class HarmonyService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("HarmonyService");
+        this.Name = "HarmonyService";
     }
 }
 
@@ -5693,9 +5971,9 @@ export class HumanoidRigDescription extends Instance {
         this.ChestRangeMax = new Vector3(0, 0, 0);
         this.ChestRangeMin = new Vector3(0, 0, 0);
         this.ChestSize = 0;
-        this.HeadRangeMax = new Vector3(0, 0, 0);
-        this.HeadRangeMin = new Vector3(0, 0, 0);
-        this.HeadSize = 0;
+        this.HeadBaseRangeMax = new Vector3(0, 0, 0);
+        this.HeadBaseRangeMin = new Vector3(0, 0, 0);
+        this.HeadBaseSize = 0;
         this.LeftAnkleRangeMax = new Vector3(0, 0, 0);
         this.LeftAnkleRangeMin = new Vector3(0, 0, 0);
         this.LeftAnkleSize = 0;
@@ -5767,16 +6045,16 @@ export class HumanoidRigDescription extends Instance {
     public set ChestSize(value) {this.SetProp("ChestSize", DataType.Float32, value);}
     public get ChestTposeAdjustment() {return this.GetProp("ChestTposeAdjustment", DataType.CFrame);}
     public set ChestTposeAdjustment(value) {this.SetProp("ChestTposeAdjustment", DataType.CFrame, value);}
-    public get Head() {return this.GetProp("Head", DataType.Referent) as Instance | undefined;}
-    public set Head(value) {this.SetProp("Head", DataType.Referent, value);}
-    public get HeadRangeMax() {return this.GetProp("HeadRangeMax", DataType.Vector3)!;}
-    public set HeadRangeMax(value) {this.SetProp("HeadRangeMax", DataType.Vector3, value);}
-    public get HeadRangeMin() {return this.GetProp("HeadRangeMin", DataType.Vector3)!;}
-    public set HeadRangeMin(value) {this.SetProp("HeadRangeMin", DataType.Vector3, value);}
-    public get HeadSize() {return this.GetProp("HeadSize", DataType.Float32)!;}
-    public set HeadSize(value) {this.SetProp("HeadSize", DataType.Float32, value);}
-    public get HeadTposeAdjustment() {return this.GetProp("HeadTposeAdjustment", DataType.CFrame);}
-    public set HeadTposeAdjustment(value) {this.SetProp("HeadTposeAdjustment", DataType.CFrame, value);}
+    public get HeadBase() {return this.GetProp("HeadBase", DataType.Referent) as Instance | undefined;}
+    public set HeadBase(value) {this.SetProp("HeadBase", DataType.Referent, value);}
+    public get HeadBaseRangeMax() {return this.GetProp("HeadBaseRangeMax", DataType.Vector3)!;}
+    public set HeadBaseRangeMax(value) {this.SetProp("HeadBaseRangeMax", DataType.Vector3, value);}
+    public get HeadBaseRangeMin() {return this.GetProp("HeadBaseRangeMin", DataType.Vector3)!;}
+    public set HeadBaseRangeMin(value) {this.SetProp("HeadBaseRangeMin", DataType.Vector3, value);}
+    public get HeadBaseSize() {return this.GetProp("HeadBaseSize", DataType.Float32)!;}
+    public set HeadBaseSize(value) {this.SetProp("HeadBaseSize", DataType.Float32, value);}
+    public get HeadBaseTposeAdjustment() {return this.GetProp("HeadBaseTposeAdjustment", DataType.CFrame);}
+    public set HeadBaseTposeAdjustment(value) {this.SetProp("HeadBaseTposeAdjustment", DataType.CFrame, value);}
     public get LeftAnkle() {return this.GetProp("LeftAnkle", DataType.Referent) as Instance | undefined;}
     public set LeftAnkle(value) {this.SetProp("LeftAnkle", DataType.Referent, value);}
     public get LeftAnkleRangeMax() {return this.GetProp("LeftAnkleRangeMax", DataType.Vector3)!;}
@@ -6088,18 +6366,25 @@ export class InputBinding extends Instance {
         super();
         this.addClassName("InputBinding");
         this.Name = "InputBinding";
+        this.Backward = KeyCode.Unknown;
         this.Down = KeyCode.Unknown;
+        this.Forward = KeyCode.Unknown;
         this.KeyCode = KeyCode.Unknown;
         this.Left = KeyCode.Unknown;
         this.PressedThreshold = 0.5;
         this.ReleasedThreshold = 0.2;
+        this.ResponseCurve = 1;
         this.Right = KeyCode.Unknown;
         this.Scale = 1;
         this.Up = KeyCode.Unknown;
         this.Vector2Scale = new Vector2(1, 1);
     }
+    public get Backward() {return this.GetProp("Backward", DataType.Enum)! as KeyCode;}
+    public set Backward(value) {this.SetProp("Backward", DataType.Enum, value);}
     public get Down() {return this.GetProp("Down", DataType.Enum)! as KeyCode;}
     public set Down(value) {this.SetProp("Down", DataType.Enum, value);}
+    public get Forward() {return this.GetProp("Forward", DataType.Enum)! as KeyCode;}
+    public set Forward(value) {this.SetProp("Forward", DataType.Enum, value);}
     public get KeyCode() {return this.GetProp("KeyCode", DataType.Enum)! as KeyCode;}
     public set KeyCode(value) {this.SetProp("KeyCode", DataType.Enum, value);}
     public get Left() {return this.GetProp("Left", DataType.Enum)! as KeyCode;}
@@ -6108,6 +6393,8 @@ export class InputBinding extends Instance {
     public set PressedThreshold(value) {this.SetProp("PressedThreshold", DataType.Float32, value);}
     public get ReleasedThreshold() {return this.GetProp("ReleasedThreshold", DataType.Float32)!;}
     public set ReleasedThreshold(value) {this.SetProp("ReleasedThreshold", DataType.Float32, value);}
+    public get ResponseCurve() {return this.GetProp("ResponseCurve", DataType.Float32)!;}
+    public set ResponseCurve(value) {this.SetProp("ResponseCurve", DataType.Float32, value);}
     public get Right() {return this.GetProp("Right", DataType.Enum)! as KeyCode;}
     public set Right(value) {this.SetProp("Right", DataType.Enum, value);}
     public get Scale() {return this.GetProp("Scale", DataType.Float32)!;}
@@ -6509,6 +6796,7 @@ export class Lighting extends Instance {
         this.EnvironmentDiffuseScale = 0;
         this.EnvironmentSpecularScale = 0;
         this.ExposureCompensation = 0;
+        this.ExtendLightRangeTo120 = RolloutState.Default;
         this.FogColor = Color3.FromRGB(191, 191, 191);
         this.FogEnd = 100000;
         this.FogStart = 0;
@@ -6537,6 +6825,8 @@ export class Lighting extends Instance {
     public set EnvironmentSpecularScale(value) {this.SetProp("EnvironmentSpecularScale", DataType.Float32, value);}
     public get ExposureCompensation() {return this.GetProp("ExposureCompensation", DataType.Float32)!;}
     public set ExposureCompensation(value) {this.SetProp("ExposureCompensation", DataType.Float32, value);}
+    public get ExtendLightRangeTo120() {return this.GetProp("ExtendLightRangeTo120", DataType.Enum)! as RolloutState;}
+    public set ExtendLightRangeTo120(value) {this.SetProp("ExtendLightRangeTo120", DataType.Enum, value);}
     public get FogColor() {return this.GetProp("FogColor", DataType.Color3)!;}
     public set FogColor(value) {this.SetProp("FogColor", DataType.Color3, value);}
     public get FogEnd() {return this.GetProp("FogEnd", DataType.Float32)!;}
@@ -6705,6 +6995,8 @@ export class AuroraScript extends LuaSourceContainer {
         this.addClassName("AuroraScript");
         this.Name = "AuroraScript";
     }
+    public get AuroraScriptBindingsSerialize() {return this.GetProp("AuroraScriptBindingsSerialize", DataType.String);}
+    public set AuroraScriptBindingsSerialize(value) {this.SetProp("AuroraScriptBindingsSerialize", DataType.String, value);}
     public get EnableCulling() {return this.GetProp("EnableCulling", DataType.Bool);}
     public set EnableCulling(value) {this.SetProp("EnableCulling", DataType.Bool, value);}
     public get EnableLOD() {return this.GetProp("EnableLOD", DataType.Bool);}
@@ -6801,13 +7093,22 @@ export class MLModelDeliveryService extends Instance {
     }
 }
 
+export class MLService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("MLService");
+        this.Name = "MLService";
+    }
+}
+
 export class MarkerCurve extends Instance {
     public constructor()
     {
         super();
         this.addClassName("MarkerCurve");
         this.Name = "MarkerCurve";
-        this.ValuesAndTimes = "\u0001";
+        this.ValuesAndTimes = "\u0002";
     }
     public get ValuesAndTimes() {return this.GetProp("ValuesAndTimes", DataType.String)!;}
     public set ValuesAndTimes(value) {this.SetProp("ValuesAndTimes", DataType.String, value);}
@@ -6991,16 +7292,24 @@ export class MaterialVariant extends Instance {
     public set BaseMaterial(value) {this.SetProp("BaseMaterial", DataType.Enum, value);}
     public get ColorMap() {return this.GetProp("ColorMap", DataType.String)!;}
     public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
+    public get ColorMapContent() {return this.GetProp("ColorMapContent", DataType.String);}
+    public set ColorMapContent(value) {this.SetProp("ColorMapContent", DataType.String, value);}
     public get CustomPhysicalProperties() {return this.GetProp("CustomPhysicalProperties", DataType.PhysicalProperties);}
     public set CustomPhysicalProperties(value) {this.SetProp("CustomPhysicalProperties", DataType.PhysicalProperties, value);}
     public get MaterialPattern() {return this.GetProp("MaterialPattern", DataType.Enum)! as MaterialPattern;}
     public set MaterialPattern(value) {this.SetProp("MaterialPattern", DataType.Enum, value);}
     public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String)!;}
     public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
+    public get MetalnessMapContent() {return this.GetProp("MetalnessMapContent", DataType.String);}
+    public set MetalnessMapContent(value) {this.SetProp("MetalnessMapContent", DataType.String, value);}
     public get NormalMap() {return this.GetProp("NormalMap", DataType.String)!;}
     public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
+    public get NormalMapContent() {return this.GetProp("NormalMapContent", DataType.String);}
+    public set NormalMapContent(value) {this.SetProp("NormalMapContent", DataType.String, value);}
     public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String)!;}
     public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
+    public get RoughnessMapContent() {return this.GetProp("RoughnessMapContent", DataType.String);}
+    public set RoughnessMapContent(value) {this.SetProp("RoughnessMapContent", DataType.String, value);}
     public get StudsPerTile() {return this.GetProp("StudsPerTile", DataType.Float32)!;}
     public set StudsPerTile(value) {this.SetProp("StudsPerTile", DataType.Float32, value);}
     public get TexturePack() {return this.GetProp("TexturePack", DataType.String)!;}
@@ -7072,6 +7381,27 @@ export class MetaBreakpointManager extends Instance {
         super(true);
         this.addClassName("MetaBreakpointManager");
         this.Name = "MetaBreakpointManager";
+    }
+}
+
+export class MicroProfilerService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("MicroProfilerService");
+        this.Name = "MicroProfilerService";
+        this.ContextLabel = "";
+    }
+    public get ContextLabel() {return this.GetProp("ContextLabel", DataType.String)!;}
+    public set ContextLabel(value) {this.SetProp("ContextLabel", DataType.String, value);}
+}
+
+export class ModerationService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("ModerationService");
+        this.Name = "ModerationService";
     }
 }
 
@@ -7553,7 +7883,6 @@ export class Terrain extends BasePart {
         this.GrassLength = 0.7;
         this.MaterialColors = "";
         this.PhysicsGrid = "\u0002\u0003";
-        this.ShorelinesUpgraded = true;
         this.SmoothGrid = "\u0001\u0005";
         this.SmoothVoxelsUpgraded = false;
         this.WaterColor = Color3.FromRGB(13, 84, 92);
@@ -7586,8 +7915,6 @@ export class Terrain extends BasePart {
     public set MaterialColors(value) {this.SetProp("MaterialColors", DataType.String, value);}
     public get PhysicsGrid() {return this.GetProp("PhysicsGrid", DataType.String)!;}
     public set PhysicsGrid(value) {this.SetProp("PhysicsGrid", DataType.String, value);}
-    public get ShorelinesUpgraded() {return this.GetProp("ShorelinesUpgraded", DataType.Bool)!;}
-    public set ShorelinesUpgraded(value) {this.SetProp("ShorelinesUpgraded", DataType.Bool, value);}
     public get SmoothGrid() {return this.GetProp("SmoothGrid", DataType.String)!;}
     public set SmoothGrid(value) {this.SetProp("SmoothGrid", DataType.String, value);}
     public get SmoothVoxelsUpgraded() {return this.GetProp("SmoothVoxelsUpgraded", DataType.Bool)!;}
@@ -7624,6 +7951,8 @@ export abstract class TriangleMeshPart extends BasePart {
     public set AeroMeshData(value) {this.SetProp("AeroMeshData", DataType.SharedString, value);}
     public get FluidFidelityInternal() {return this.GetProp("FluidFidelityInternal", DataType.Enum) as FluidFidelity | undefined;}
     public set FluidFidelityInternal(value) {this.SetProp("FluidFidelityInternal", DataType.Enum, value);}
+    public get InertiaMigrated() {return this.GetProp("InertiaMigrated", DataType.Bool);}
+    public set InertiaMigrated(value) {this.SetProp("InertiaMigrated", DataType.Bool, value);}
     public get PhysicalConfigData() {return this.GetProp("PhysicalConfigData", DataType.SharedString);}
     public set PhysicalConfigData(value) {this.SetProp("PhysicalConfigData", DataType.SharedString, value);}
     public get UnscaledCofm() {return this.GetProp("UnscaledCofm", DataType.Vector3);}
@@ -7753,10 +8082,13 @@ export class NegateOperation extends PartOperation {
         super();
         this.addClassName("NegateOperation");
         this.Name = "NegateOperation";
+        this.PreviousOperation = NegateOperationHiddenHistory.None;
         this.Anchored = true;
         this.CanCollide = false;
         this.Transparency = 0.1;
     }
+    public get PreviousOperation() {return this.GetProp("PreviousOperation", DataType.Enum)! as NegateOperationHiddenHistory;}
+    public set PreviousOperation(value) {this.SetProp("PreviousOperation", DataType.Enum, value);}
 }
 
 export class UnionOperation extends PartOperation {
@@ -7934,6 +8266,8 @@ export abstract class BackpackItem extends Model {
         this.addClassName("BackpackItem");
         this.TextureId = "";
     }
+    public get TextureContent() {return this.GetProp("TextureContent", DataType.String);}
+    public set TextureContent(value) {this.SetProp("TextureContent", DataType.String, value);}
     public get TextureId() {return this.GetProp("TextureId", DataType.String)!;}
     public set TextureId(value) {this.SetProp("TextureId", DataType.String, value);}
 }
@@ -8020,8 +8354,12 @@ export class Workspace extends WorldRoot {
     }
     public get AirDensity() {return this.GetProp("AirDensity", DataType.Float32)!;}
     public set AirDensity(value) {this.SetProp("AirDensity", DataType.Float32, value);}
+    public get AirTurbulenceIntensity() {return this.GetProp("AirTurbulenceIntensity", DataType.Float32);}
+    public set AirTurbulenceIntensity(value) {this.SetProp("AirTurbulenceIntensity", DataType.Float32, value);}
     public get AllowThirdPartySales() {return this.GetProp("AllowThirdPartySales", DataType.Bool)!;}
     public set AllowThirdPartySales(value) {this.SetProp("AllowThirdPartySales", DataType.Bool, value);}
+    public get AuthorityMode() {return this.GetProp("AuthorityMode", DataType.Enum) as AuthorityMode | undefined;}
+    public set AuthorityMode(value) {this.SetProp("AuthorityMode", DataType.Enum, value);}
     public get AvatarUnificationMode() {return this.GetProp("AvatarUnificationMode", DataType.Enum) as AvatarUnificationMode | undefined;}
     public set AvatarUnificationMode(value) {this.SetProp("AvatarUnificationMode", DataType.Enum, value);}
     public get ClientAnimatorThrottling() {return this.GetProp("ClientAnimatorThrottling", DataType.Enum)! as ClientAnimatorThrottlingMode;}
@@ -8046,6 +8384,8 @@ export class Workspace extends WorldRoot {
     public set Gravity(value) {this.SetProp("Gravity", DataType.Float32, value);}
     public get IKControlConstraintSupport() {return this.GetProp("IKControlConstraintSupport", DataType.Enum) as IKControlConstraintSupport | undefined;}
     public set IKControlConstraintSupport(value) {this.SetProp("IKControlConstraintSupport", DataType.Enum, value);}
+    public get LuauTypeCheckMode() {return this.GetProp("LuauTypeCheckMode", DataType.Enum) as LuauTypeCheckMode | undefined;}
+    public set LuauTypeCheckMode(value) {this.SetProp("LuauTypeCheckMode", DataType.Enum, value);}
     public get MeshPartHeadsAndAccessories() {return this.GetProp("MeshPartHeadsAndAccessories", DataType.Enum) as MeshPartHeadsAndAccessories | undefined;}
     public set MeshPartHeadsAndAccessories(value) {this.SetProp("MeshPartHeadsAndAccessories", DataType.Enum, value);}
     public get ModelStreamingBehavior() {return this.GetProp("ModelStreamingBehavior", DataType.Enum) as ModelStreamingBehavior | undefined;}
@@ -8090,6 +8430,10 @@ export class Workspace extends WorldRoot {
     public set TouchEventsUseCollisionGroups(value) {this.SetProp("TouchEventsUseCollisionGroups", DataType.Enum, value);}
     public get TouchesUseCollisionGroups() {return this.GetProp("TouchesUseCollisionGroups", DataType.Bool);}
     public set TouchesUseCollisionGroups(value) {this.SetProp("TouchesUseCollisionGroups", DataType.Bool, value);}
+    public get UseImprovedModelLod() {return this.GetProp("UseImprovedModelLod", DataType.Enum) as RolloutState | undefined;}
+    public set UseImprovedModelLod(value) {this.SetProp("UseImprovedModelLod", DataType.Enum, value);}
+    public get UseNewLuauTypeSolver() {return this.GetProp("UseNewLuauTypeSolver", DataType.Enum) as RolloutState | undefined;}
+    public set UseNewLuauTypeSolver(value) {this.SetProp("UseNewLuauTypeSolver", DataType.Enum, value);}
 }
 
 export class WorldModel extends WorldRoot {
@@ -8245,6 +8589,15 @@ export class ParticleEmitter extends Instance {
     public set WindAffectsDrag(value) {this.SetProp("WindAffectsDrag", DataType.Bool, value);}
     public get ZOffset() {return this.GetProp("ZOffset", DataType.Float32)!;}
     public set ZOffset(value) {this.SetProp("ZOffset", DataType.Float32, value);}
+}
+
+export class PartyEmulatorService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("PartyEmulatorService");
+        this.Name = "PartyEmulatorService";
+    }
 }
 
 export class PatchBundlerFileWatch extends Instance {
@@ -8780,6 +9133,7 @@ export class ProximityPrompt extends Instance {
         this.HoldDuration = 0;
         this.KeyboardKeyCode = KeyCode.E;
         this.MaxActivationDistance = 10;
+        this.MaxIndicatorDistance = 0;
         this.ObjectText = "";
         this.RequiresLineOfSight = true;
         this.Style = ProximityPromptStyle.Default;
@@ -8803,6 +9157,8 @@ export class ProximityPrompt extends Instance {
     public set KeyboardKeyCode(value) {this.SetProp("KeyboardKeyCode", DataType.Enum, value);}
     public get MaxActivationDistance() {return this.GetProp("MaxActivationDistance", DataType.Float32)!;}
     public set MaxActivationDistance(value) {this.SetProp("MaxActivationDistance", DataType.Float32, value);}
+    public get MaxIndicatorDistance() {return this.GetProp("MaxIndicatorDistance", DataType.Float32)!;}
+    public set MaxIndicatorDistance(value) {this.SetProp("MaxIndicatorDistance", DataType.Float32, value);}
     public get ObjectText() {return this.GetProp("ObjectText", DataType.String)!;}
     public set ObjectText(value) {this.SetProp("ObjectText", DataType.String, value);}
     public get RequiresLineOfSight() {return this.GetProp("RequiresLineOfSight", DataType.Bool)!;}
@@ -8822,10 +9178,13 @@ export class ProximityPromptService extends Instance {
         this.addClassName("ProximityPromptService");
         this.Name = "ProximityPromptService";
         this.Enabled = true;
+        this.MaxIndicatorsVisible = 16;
         this.MaxPromptsVisible = 16;
     }
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
+    public get MaxIndicatorsVisible() {return this.GetProp("MaxIndicatorsVisible", DataType.Int32)!;}
+    public set MaxIndicatorsVisible(value) {this.SetProp("MaxIndicatorsVisible", DataType.Int32, value);}
     public get MaxPromptsVisible() {return this.GetProp("MaxPromptsVisible", DataType.Int32)!;}
     public set MaxPromptsVisible(value) {this.SetProp("MaxPromptsVisible", DataType.Int32, value);}
 }
@@ -8854,6 +9213,15 @@ export class RbxAnalyticsService extends Instance {
         super(true);
         this.addClassName("RbxAnalyticsService");
         this.Name = "RbxAnalyticsService";
+    }
+}
+
+export class RecommendationService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("RecommendationService");
+        this.Name = "RecommendationService";
     }
 }
 
@@ -9042,6 +9410,15 @@ export class ReflectionService extends Instance {
         super(true);
         this.addClassName("ReflectionService");
         this.Name = "ReflectionService";
+    }
+}
+
+export class RemoteCommandService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("RemoteCommandService");
+        this.Name = "RemoteCommandService";
     }
 }
 
@@ -9499,6 +9876,15 @@ export class ServiceVisibilityService extends Instance {
     public set VisibleServices(value) {this.SetProp("VisibleServices", DataType.String, value);}
 }
 
+export class SessionCheckService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("SessionCheckService");
+        this.Name = "SessionCheckService";
+    }
+}
+
 export class SessionService extends Instance {
     public constructor()
     {
@@ -9565,6 +9951,15 @@ export class Sky extends Instance {
     public set SunTextureId(value) {this.SetProp("SunTextureId", DataType.String, value);}
 }
 
+export class SlimService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("SlimService");
+        this.Name = "SlimService";
+    }
+}
+
 export class Smoke extends Instance {
     public constructor()
     {
@@ -9626,6 +10021,7 @@ export class Sound extends Instance {
         this.addClassName("Sound");
         this.Name = "Sound";
         this.EmitterSize = 10;
+        this.IsMutedForCapture = false;
         this.LoopRegion = new NumberRange(0, 60000);
         this.Looped = false;
         this.MinDistance = 10;
@@ -9644,8 +10040,12 @@ export class Sound extends Instance {
         this.XmlReadMaxDistance3 = 10000;
         this.XmlReadMinDistance3 = 10;
     }
+    public get AudioContent() {return this.GetProp("AudioContent", DataType.String);}
+    public set AudioContent(value) {this.SetProp("AudioContent", DataType.String, value);}
     public get EmitterSize() {return this.GetProp("EmitterSize", DataType.Float32)!;}
     public set EmitterSize(value) {this.SetProp("EmitterSize", DataType.Float32, value);}
+    public get IsMutedForCapture() {return this.GetProp("IsMutedForCapture", DataType.Bool)!;}
+    public set IsMutedForCapture(value) {this.SetProp("IsMutedForCapture", DataType.Bool, value);}
     public get LoopRegion() {return this.GetProp("LoopRegion", DataType.NumberRange)!;}
     public set LoopRegion(value) {this.SetProp("LoopRegion", DataType.NumberRange, value);}
     public get Looped() {return this.GetProp("Looped", DataType.Bool)!;}
@@ -9893,6 +10293,7 @@ export class SoundService extends Instance {
         this.Name = "SoundService";
         this.AmbientReverb = ReverbType.NoReverb;
         this.AudioApiByDefault = RolloutState.Default;
+        this.AudioPlayerVolumeFix = RolloutState.Default;
         this.CharacterSoundsUseNewApi = RolloutState.Default;
         this.DefaultListenerLocation = ListenerLocation.Default;
         this.DistanceFactor = 3.33;
@@ -9906,6 +10307,8 @@ export class SoundService extends Instance {
     public set AmbientReverb(value) {this.SetProp("AmbientReverb", DataType.Enum, value);}
     public get AudioApiByDefault() {return this.GetProp("AudioApiByDefault", DataType.Enum)! as RolloutState;}
     public set AudioApiByDefault(value) {this.SetProp("AudioApiByDefault", DataType.Enum, value);}
+    public get AudioPlayerVolumeFix() {return this.GetProp("AudioPlayerVolumeFix", DataType.Enum)! as RolloutState;}
+    public set AudioPlayerVolumeFix(value) {this.SetProp("AudioPlayerVolumeFix", DataType.Enum, value);}
     public get CharacterSoundsUseNewApi() {return this.GetProp("CharacterSoundsUseNewApi", DataType.Enum)! as RolloutState;}
     public set CharacterSoundsUseNewApi(value) {this.SetProp("CharacterSoundsUseNewApi", DataType.Enum, value);}
     public get DefaultListenerLocation() {return this.GetProp("DefaultListenerLocation", DataType.Enum)! as ListenerLocation;}
@@ -9922,6 +10325,15 @@ export class SoundService extends Instance {
     public set RolloffScale(value) {this.SetProp("RolloffScale", DataType.Float32, value);}
     public get VolumetricAudio() {return this.GetProp("VolumetricAudio", DataType.Enum)! as VolumetricAudio;}
     public set VolumetricAudio(value) {this.SetProp("VolumetricAudio", DataType.Enum, value);}
+}
+
+export class SoundShimService extends Instance {
+    public constructor()
+    {
+        super(true);
+        this.addClassName("SoundShimService");
+        this.Name = "SoundShimService";
+    }
 }
 
 export class Sparkles extends Instance {
@@ -10576,16 +10988,24 @@ export class TerrainDetail extends Instance {
     }
     public get ColorMap() {return this.GetProp("ColorMap", DataType.String)!;}
     public set ColorMap(value) {this.SetProp("ColorMap", DataType.String, value);}
+    public get ColorMapContent() {return this.GetProp("ColorMapContent", DataType.String);}
+    public set ColorMapContent(value) {this.SetProp("ColorMapContent", DataType.String, value);}
     public get Face() {return this.GetProp("Face", DataType.Enum)! as TerrainFace;}
     public set Face(value) {this.SetProp("Face", DataType.Enum, value);}
     public get MaterialPattern() {return this.GetProp("MaterialPattern", DataType.Enum)! as MaterialPattern;}
     public set MaterialPattern(value) {this.SetProp("MaterialPattern", DataType.Enum, value);}
     public get MetalnessMap() {return this.GetProp("MetalnessMap", DataType.String)!;}
     public set MetalnessMap(value) {this.SetProp("MetalnessMap", DataType.String, value);}
+    public get MetalnessMapContent() {return this.GetProp("MetalnessMapContent", DataType.String);}
+    public set MetalnessMapContent(value) {this.SetProp("MetalnessMapContent", DataType.String, value);}
     public get NormalMap() {return this.GetProp("NormalMap", DataType.String)!;}
     public set NormalMap(value) {this.SetProp("NormalMap", DataType.String, value);}
+    public get NormalMapContent() {return this.GetProp("NormalMapContent", DataType.String);}
+    public set NormalMapContent(value) {this.SetProp("NormalMapContent", DataType.String, value);}
     public get RoughnessMap() {return this.GetProp("RoughnessMap", DataType.String)!;}
     public set RoughnessMap(value) {this.SetProp("RoughnessMap", DataType.String, value);}
+    public get RoughnessMapContent() {return this.GetProp("RoughnessMapContent", DataType.String);}
+    public set RoughnessMapContent(value) {this.SetProp("RoughnessMapContent", DataType.String, value);}
     public get StudsPerTile() {return this.GetProp("StudsPerTile", DataType.Float32)!;}
     public set StudsPerTile(value) {this.SetProp("StudsPerTile", DataType.Float32, value);}
     public get TexturePack() {return this.GetProp("TexturePack", DataType.String)!;}
@@ -10874,6 +11294,7 @@ export class TextChatService extends Instance {
         this.CreateDefaultCommands = true;
         this.CreateDefaultTextChannels = true;
         this.HasSeenDeprecationDialog = false;
+        this.IsLegacyChatDisabled = false;
     }
     public get ChatTranslationFTUXShown() {return this.GetProp("ChatTranslationFTUXShown", DataType.Bool)!;}
     public set ChatTranslationFTUXShown(value) {this.SetProp("ChatTranslationFTUXShown", DataType.Bool, value);}
@@ -10887,6 +11308,20 @@ export class TextChatService extends Instance {
     public set CreateDefaultTextChannels(value) {this.SetProp("CreateDefaultTextChannels", DataType.Bool, value);}
     public get HasSeenDeprecationDialog() {return this.GetProp("HasSeenDeprecationDialog", DataType.Bool)!;}
     public set HasSeenDeprecationDialog(value) {this.SetProp("HasSeenDeprecationDialog", DataType.Bool, value);}
+    public get IsLegacyChatDisabled() {return this.GetProp("IsLegacyChatDisabled", DataType.Bool)!;}
+    public set IsLegacyChatDisabled(value) {this.SetProp("IsLegacyChatDisabled", DataType.Bool, value);}
+}
+
+export class TextGenerator extends Instance {
+    public constructor()
+    {
+        super();
+        this.addClassName("TextGenerator");
+        this.Name = "TextGenerator";
+        this.SystemPrompt = "";
+    }
+    public get SystemPrompt() {return this.GetProp("SystemPrompt", DataType.String)!;}
+    public set SystemPrompt(value) {this.SetProp("SystemPrompt", DataType.String, value);}
 }
 
 export class TextService extends Instance {
@@ -11141,6 +11576,24 @@ export class UITextSizeConstraint extends UIConstraint {
     public set MinTextSize(value) {this.SetProp("MinTextSize", DataType.Int32, value);}
 }
 
+export class UIContainerQuery extends UIComponent {
+    public constructor()
+    {
+        super();
+        this.addClassName("UIContainerQuery");
+        this.Name = "UIContainerQuery";
+        this.AspectRatioRange = new NumberRange(0, Infinity);
+        this.MaxSize = new Vector2(Infinity, Infinity);
+        this.MinSize = new Vector2(0, 0);
+    }
+    public get AspectRatioRange() {return this.GetProp("AspectRatioRange", DataType.NumberRange)!;}
+    public set AspectRatioRange(value) {this.SetProp("AspectRatioRange", DataType.NumberRange, value);}
+    public get MaxSize() {return this.GetProp("MaxSize", DataType.Vector2)!;}
+    public set MaxSize(value) {this.SetProp("MaxSize", DataType.Vector2, value);}
+    public get MinSize() {return this.GetProp("MinSize", DataType.Vector2)!;}
+    public set MinSize(value) {this.SetProp("MinSize", DataType.Vector2, value);}
+}
+
 export class UICorner extends UIComponent {
     public constructor()
     {
@@ -11180,12 +11633,16 @@ export class UIDragDetector extends UIComponent {
     }
     public get ActivatedCursorIcon() {return this.GetProp("ActivatedCursorIcon", DataType.String)!;}
     public set ActivatedCursorIcon(value) {this.SetProp("ActivatedCursorIcon", DataType.String, value);}
+    public get ActivatedCursorIconContent() {return this.GetProp("ActivatedCursorIconContent", DataType.String);}
+    public set ActivatedCursorIconContent(value) {this.SetProp("ActivatedCursorIconContent", DataType.String, value);}
     public get BoundingBehavior() {return this.GetProp("BoundingBehavior", DataType.Enum)! as UIDragDetectorBoundingBehavior;}
     public set BoundingBehavior(value) {this.SetProp("BoundingBehavior", DataType.Enum, value);}
     public get BoundingUI() {return this.GetProp("BoundingUI", DataType.Referent) as GuiBase2d | undefined;}
     public set BoundingUI(value) {this.SetProp("BoundingUI", DataType.Referent, value);}
     public get CursorIcon() {return this.GetProp("CursorIcon", DataType.String)!;}
     public set CursorIcon(value) {this.SetProp("CursorIcon", DataType.String, value);}
+    public get CursorIconContent() {return this.GetProp("CursorIconContent", DataType.String);}
+    public set CursorIconContent(value) {this.SetProp("CursorIconContent", DataType.String, value);}
     public get DragAxis() {return this.GetProp("DragAxis", DataType.Vector2)!;}
     public set DragAxis(value) {this.SetProp("DragAxis", DataType.Vector2, value);}
     public get DragRelativity() {return this.GetProp("DragRelativity", DataType.Enum)! as UIDragDetectorDragRelativity;}
@@ -11438,24 +11895,36 @@ export class UIStroke extends UIComponent {
         this.addClassName("UIStroke");
         this.Name = "UIStroke";
         this.ApplyStrokeMode = ApplyStrokeMode.Contextual;
+        this.BorderOffset = new UDim(0, 0);
+        this.BorderStrokePosition = BorderStrokePosition.Outer;
         this.Color = Color3.FromRGB(0, 0, 0);
         this.Enabled = true;
         this.LineJoinMode = LineJoinMode.Round;
+        this.StrokeSizingMode = StrokeSizingMode.FixedSize;
         this.Thickness = 1;
         this.Transparency = 0;
+        this.ZIndex = 1;
     }
     public get ApplyStrokeMode() {return this.GetProp("ApplyStrokeMode", DataType.Enum)! as ApplyStrokeMode;}
     public set ApplyStrokeMode(value) {this.SetProp("ApplyStrokeMode", DataType.Enum, value);}
+    public get BorderOffset() {return this.GetProp("BorderOffset", DataType.UDim)!;}
+    public set BorderOffset(value) {this.SetProp("BorderOffset", DataType.UDim, value);}
+    public get BorderStrokePosition() {return this.GetProp("BorderStrokePosition", DataType.Enum)! as BorderStrokePosition;}
+    public set BorderStrokePosition(value) {this.SetProp("BorderStrokePosition", DataType.Enum, value);}
     public get Color() {return this.GetProp("Color", DataType.Color3)!;}
     public set Color(value) {this.SetProp("Color", DataType.Color3, value);}
     public get Enabled() {return this.GetProp("Enabled", DataType.Bool)!;}
     public set Enabled(value) {this.SetProp("Enabled", DataType.Bool, value);}
     public get LineJoinMode() {return this.GetProp("LineJoinMode", DataType.Enum)! as LineJoinMode;}
     public set LineJoinMode(value) {this.SetProp("LineJoinMode", DataType.Enum, value);}
+    public get StrokeSizingMode() {return this.GetProp("StrokeSizingMode", DataType.Enum)! as StrokeSizingMode;}
+    public set StrokeSizingMode(value) {this.SetProp("StrokeSizingMode", DataType.Enum, value);}
     public get Thickness() {return this.GetProp("Thickness", DataType.Float32)!;}
     public set Thickness(value) {this.SetProp("Thickness", DataType.Float32, value);}
     public get Transparency() {return this.GetProp("Transparency", DataType.Float32)!;}
     public set Transparency(value) {this.SetProp("Transparency", DataType.Float32, value);}
+    public get ZIndex() {return this.GetProp("ZIndex", DataType.Int32)!;}
+    public set ZIndex(value) {this.SetProp("ZIndex", DataType.Int32, value);}
 }
 
 export class UIDragDetectorService extends Instance {
@@ -11506,6 +11975,8 @@ export class UserInputService extends Instance {
     public set MouseBehavior(value) {this.SetProp("MouseBehavior", DataType.Enum, value);}
     public get MouseIcon() {return this.GetProp("MouseIcon", DataType.String)!;}
     public set MouseIcon(value) {this.SetProp("MouseIcon", DataType.String, value);}
+    public get MouseIconContent() {return this.GetProp("MouseIconContent", DataType.String);}
+    public set MouseIconContent(value) {this.SetProp("MouseIconContent", DataType.String, value);}
     public get MouseIconEnabled() {return this.GetProp("MouseIconEnabled", DataType.Bool)!;}
     public set MouseIconEnabled(value) {this.SetProp("MouseIconEnabled", DataType.Bool, value);}
 }
@@ -11793,6 +12264,8 @@ export class VideoPlayer extends Instance {
     public set PlaybackSpeed(value) {this.SetProp("PlaybackSpeed", DataType.Float32, value);}
     public get TimePosition() {return this.GetProp("TimePosition", DataType.Float64)!;}
     public set TimePosition(value) {this.SetProp("TimePosition", DataType.Float64, value);}
+    public get VideoContent() {return this.GetProp("VideoContent", DataType.String);}
+    public set VideoContent(value) {this.SetProp("VideoContent", DataType.String, value);}
     public get Volume() {return this.GetProp("Volume", DataType.Float32)!;}
     public set Volume(value) {this.SetProp("Volume", DataType.Float32, value);}
 }
@@ -11966,6 +12439,15 @@ export class Wire extends Instance {
     public set TargetName(value) {this.SetProp("TargetName", DataType.String, value);}
 }
 
+export class WrapTextureTransfer extends Instance {
+    public constructor()
+    {
+        super();
+        this.addClassName("WrapTextureTransfer");
+        this.Name = "WrapTextureTransfer";
+    }
+}
+
 export type NameToClass = {
     ["Instance"]: Instance
     ["AccessoryDescription"]: AccessoryDescription
@@ -11993,6 +12475,7 @@ export type NameToClass = {
     ["WorkspaceAnnotation"]: WorkspaceAnnotation
     ["AnnotationsService"]: AnnotationsService
     ["AppLifecycleObserverService"]: AppLifecycleObserverService
+    ["AppRatingPromptService"]: AppRatingPromptService
     ["AppUpdateService"]: AppUpdateService
     ["AssetCounterService"]: AssetCounterService
     ["AssetDeliveryProxy"]: AssetDeliveryProxy
@@ -12017,6 +12500,7 @@ export type NameToClass = {
     ["AudioFilter"]: AudioFilter
     ["AudioFlanger"]: AudioFlanger
     ["AudioFocusService"]: AudioFocusService
+    ["AudioGate"]: AudioGate
     ["AudioLimiter"]: AudioLimiter
     ["AudioListener"]: AudioListener
     ["AudioPitchShifter"]: AudioPitchShifter
@@ -12024,7 +12508,9 @@ export type NameToClass = {
     ["AudioRecorder"]: AudioRecorder
     ["AudioReverb"]: AudioReverb
     ["AudioSearchParams"]: AudioSearchParams
+    ["AudioSpeechToText"]: AudioSpeechToText
     ["AudioTextToSpeech"]: AudioTextToSpeech
+    ["AudioTremolo"]: AudioTremolo
     ["AuroraScriptService"]: AuroraScriptService
     ["AuroraService"]: AuroraService
     ["AvatarAccessoryRules"]: AvatarAccessoryRules
@@ -12036,7 +12522,6 @@ export type NameToClass = {
     ["AvatarCreationService"]: AvatarCreationService
     ["AvatarEditorService"]: AvatarEditorService
     ["AvatarImportService"]: AvatarImportService
-    ["AvatarPreloader"]: AvatarPreloader
     ["AvatarRules"]: AvatarRules
     ["AvatarSettings"]: AvatarSettings
     ["Backpack"]: Backpack
@@ -12070,10 +12555,12 @@ export type NameToClass = {
     ["CacheableContentProvider"]: CacheableContentProvider
     ["HSRDataContentProvider"]: HSRDataContentProvider
     ["MeshContentProvider"]: MeshContentProvider
+    ["SlimContentProvider"]: SlimContentProvider
     ["SolidModelContentProvider"]: SolidModelContentProvider
     ["CalloutService"]: CalloutService
     ["CaptureService"]: CaptureService
     ["ChangeHistoryService"]: ChangeHistoryService
+    ["ChangeHistoryStreamingService"]: ChangeHistoryStreamingService
     ["CharacterAppearance"]: CharacterAppearance
     ["BodyColors"]: BodyColors
     ["CharacterMesh"]: CharacterMesh
@@ -12091,7 +12578,6 @@ export type NameToClass = {
     ["ClusterPacketCache"]: ClusterPacketCache
     ["CollaboratorsService"]: CollaboratorsService
     ["CollectionService"]: CollectionService
-    ["CommandService"]: CommandService
     ["CommerceService"]: CommerceService
     ["ConfigService"]: ConfigService
     ["Configuration"]: Configuration
@@ -12171,11 +12657,13 @@ export type NameToClass = {
     ["EulerRotationCurve"]: EulerRotationCurve
     ["EventIngestService"]: EventIngestService
     ["ExampleService"]: ExampleService
+    ["ExampleV2Service"]: ExampleV2Service
     ["ExperienceAuthService"]: ExperienceAuthService
     ["ExperienceInviteOptions"]: ExperienceInviteOptions
     ["ExperienceNotificationService"]: ExperienceNotificationService
     ["ExperienceService"]: ExperienceService
     ["ExperienceStateCaptureService"]: ExperienceStateCaptureService
+    ["ExperienceStateRecordingService"]: ExperienceStateRecordingService
     ["ExplorerFilter"]: ExplorerFilter
     ["ExplorerServiceVisibilityService"]: ExplorerServiceVisibilityService
     ["Explosion"]: Explosion
@@ -12191,7 +12679,6 @@ export type NameToClass = {
     ["Hole"]: Hole
     ["MotorFeature"]: MotorFeature
     ["FeatureRestrictionManager"]: FeatureRestrictionManager
-    ["FeedService"]: FeedService
     ["Fire"]: Fire
     ["FlagStandService"]: FlagStandService
     ["FloatCurve"]: FloatCurve
@@ -12209,7 +12696,6 @@ export type NameToClass = {
     ["Geometry"]: Geometry
     ["GeometryService"]: GeometryService
     ["GetTextBoundsParams"]: GetTextBoundsParams
-    ["GoogleAnalyticsConfiguration"]: GoogleAnalyticsConfiguration
     ["GroupService"]: GroupService
     ["GuiBase"]: GuiBase
     ["GuiBase2d"]: GuiBase2d
@@ -12261,8 +12747,10 @@ export type NameToClass = {
     ["Path2D"]: Path2D
     ["GuiService"]: GuiService
     ["GuidRegistryService"]: GuidRegistryService
+    ["HandRigDescription"]: HandRigDescription
     ["HapticEffect"]: HapticEffect
     ["HapticService"]: HapticService
+    ["HarmonyService"]: HarmonyService
     ["HeapProfilerService"]: HeapProfilerService
     ["HeatmapService"]: HeatmapService
     ["HeightmapImporterService"]: HeightmapImporterService
@@ -12332,6 +12820,7 @@ export type NameToClass = {
     ["LuaWebService"]: LuaWebService
     ["LuauScriptAnalyzerService"]: LuauScriptAnalyzerService
     ["MLModelDeliveryService"]: MLModelDeliveryService
+    ["MLService"]: MLService
     ["MarkerCurve"]: MarkerCurve
     ["MarketplaceService"]: MarketplaceService
     ["MatchmakingService"]: MatchmakingService
@@ -12345,6 +12834,8 @@ export type NameToClass = {
     ["MessageBusService"]: MessageBusService
     ["MessagingService"]: MessagingService
     ["MetaBreakpointManager"]: MetaBreakpointManager
+    ["MicroProfilerService"]: MicroProfilerService
+    ["ModerationService"]: ModerationService
     ["MouseService"]: MouseService
     ["NetworkPeer"]: NetworkPeer
     ["NetworkClient"]: NetworkClient
@@ -12389,6 +12880,7 @@ export type NameToClass = {
     ["PackageUIService"]: PackageUIService
     ["PartOperationAsset"]: PartOperationAsset
     ["ParticleEmitter"]: ParticleEmitter
+    ["PartyEmulatorService"]: PartyEmulatorService
     ["PatchBundlerFileWatch"]: PatchBundlerFileWatch
     ["PathfindingLink"]: PathfindingLink
     ["PathfindingModifier"]: PathfindingModifier
@@ -12431,6 +12923,7 @@ export type NameToClass = {
     ["PublishService"]: PublishService
     ["RTAnimationTracker"]: RTAnimationTracker
     ["RbxAnalyticsService"]: RbxAnalyticsService
+    ["RecommendationService"]: RecommendationService
     ["ReflectionMetadata"]: ReflectionMetadata
     ["ReflectionMetadataCallbacks"]: ReflectionMetadataCallbacks
     ["ReflectionMetadataClasses"]: ReflectionMetadataClasses
@@ -12445,6 +12938,7 @@ export type NameToClass = {
     ["ReflectionMetadataProperties"]: ReflectionMetadataProperties
     ["ReflectionMetadataYieldFunctions"]: ReflectionMetadataYieldFunctions
     ["ReflectionService"]: ReflectionService
+    ["RemoteCommandService"]: RemoteCommandService
     ["RemoteCursorService"]: RemoteCursorService
     ["RemoteDebuggerServer"]: RemoteDebuggerServer
     ["RemoteFunction"]: RemoteFunction
@@ -12484,9 +12978,11 @@ export type NameToClass = {
     ["ServerScriptService"]: ServerScriptService
     ["ServerStorage"]: ServerStorage
     ["ServiceVisibilityService"]: ServiceVisibilityService
+    ["SessionCheckService"]: SessionCheckService
     ["SessionService"]: SessionService
     ["SharedTableRegistry"]: SharedTableRegistry
     ["Sky"]: Sky
+    ["SlimService"]: SlimService
     ["Smoke"]: Smoke
     ["SmoothVoxelsUpgraderService"]: SmoothVoxelsUpgraderService
     ["SnippetService"]: SnippetService
@@ -12504,6 +13000,7 @@ export type NameToClass = {
     ["TremoloSoundEffect"]: TremoloSoundEffect
     ["SoundGroup"]: SoundGroup
     ["SoundService"]: SoundService
+    ["SoundShimService"]: SoundShimService
     ["Sparkles"]: Sparkles
     ["SpawnerService"]: SpawnerService
     ["StandalonePluginScripts"]: StandalonePluginScripts
@@ -12561,6 +13058,7 @@ export type NameToClass = {
     ["TextChatMessageProperties"]: TextChatMessageProperties
     ["BubbleChatMessageProperties"]: BubbleChatMessageProperties
     ["TextChatService"]: TextChatService
+    ["TextGenerator"]: TextGenerator
     ["TextService"]: TextService
     ["TextureGenerationService"]: TextureGenerationService
     ["ThirdPartyUserService"]: ThirdPartyUserService
@@ -12582,6 +13080,7 @@ export type NameToClass = {
     ["UIAspectRatioConstraint"]: UIAspectRatioConstraint
     ["UISizeConstraint"]: UISizeConstraint
     ["UITextSizeConstraint"]: UITextSizeConstraint
+    ["UIContainerQuery"]: UIContainerQuery
     ["UICorner"]: UICorner
     ["UIDragDetector"]: UIDragDetector
     ["UIFlexItem"]: UIFlexItem
@@ -12635,6 +13134,7 @@ export type NameToClass = {
     ["WebViewService"]: WebViewService
     ["WeldConstraint"]: WeldConstraint
     ["Wire"]: Wire
+    ["WrapTextureTransfer"]: WrapTextureTransfer
 }
 
 export type ClassFactory = () => Instance
@@ -12672,6 +13172,7 @@ function getClassMap() {
     map.set("WorkspaceAnnotation", () => new WorkspaceAnnotation());
     map.set("AnnotationsService", () => new AnnotationsService());
     map.set("AppLifecycleObserverService", () => new AppLifecycleObserverService());
+    map.set("AppRatingPromptService", () => new AppRatingPromptService());
     map.set("AppUpdateService", () => new AppUpdateService());
     map.set("AssetCounterService", () => new AssetCounterService());
     map.set("AssetDeliveryProxy", () => new AssetDeliveryProxy());
@@ -12696,6 +13197,7 @@ function getClassMap() {
     map.set("AudioFilter", () => new AudioFilter());
     map.set("AudioFlanger", () => new AudioFlanger());
     map.set("AudioFocusService", () => new AudioFocusService());
+    map.set("AudioGate", () => new AudioGate());
     map.set("AudioLimiter", () => new AudioLimiter());
     map.set("AudioListener", () => new AudioListener());
     map.set("AudioPitchShifter", () => new AudioPitchShifter());
@@ -12703,7 +13205,9 @@ function getClassMap() {
     map.set("AudioRecorder", () => new AudioRecorder());
     map.set("AudioReverb", () => new AudioReverb());
     map.set("AudioSearchParams", () => new AudioSearchParams());
+    map.set("AudioSpeechToText", () => new AudioSpeechToText());
     map.set("AudioTextToSpeech", () => new AudioTextToSpeech());
+    map.set("AudioTremolo", () => new AudioTremolo());
     map.set("AuroraScriptService", () => new AuroraScriptService());
     map.set("AuroraService", () => new AuroraService());
     map.set("AvatarAccessoryRules", () => new AvatarAccessoryRules());
@@ -12715,7 +13219,6 @@ function getClassMap() {
     map.set("AvatarCreationService", () => new AvatarCreationService());
     map.set("AvatarEditorService", () => new AvatarEditorService());
     map.set("AvatarImportService", () => new AvatarImportService());
-    map.set("AvatarPreloader", () => new AvatarPreloader());
     map.set("AvatarRules", () => new AvatarRules());
     map.set("AvatarSettings", () => new AvatarSettings());
     map.set("Backpack", () => new Backpack());
@@ -12744,10 +13247,12 @@ function getClassMap() {
     map.set("BulkImportService", () => new BulkImportService());
     map.set("HSRDataContentProvider", () => new HSRDataContentProvider());
     map.set("MeshContentProvider", () => new MeshContentProvider());
+    map.set("SlimContentProvider", () => new SlimContentProvider());
     map.set("SolidModelContentProvider", () => new SolidModelContentProvider());
     map.set("CalloutService", () => new CalloutService());
     map.set("CaptureService", () => new CaptureService());
     map.set("ChangeHistoryService", () => new ChangeHistoryService());
+    map.set("ChangeHistoryStreamingService", () => new ChangeHistoryStreamingService());
     map.set("BodyColors", () => new BodyColors());
     map.set("CharacterMesh", () => new CharacterMesh());
     map.set("Pants", () => new Pants());
@@ -12763,7 +13268,6 @@ function getClassMap() {
     map.set("ClusterPacketCache", () => new ClusterPacketCache());
     map.set("CollaboratorsService", () => new CollaboratorsService());
     map.set("CollectionService", () => new CollectionService());
-    map.set("CommandService", () => new CommandService());
     map.set("CommerceService", () => new CommerceService());
     map.set("ConfigService", () => new ConfigService());
     map.set("Configuration", () => new Configuration());
@@ -12837,11 +13341,13 @@ function getClassMap() {
     map.set("EulerRotationCurve", () => new EulerRotationCurve());
     map.set("EventIngestService", () => new EventIngestService());
     map.set("ExampleService", () => new ExampleService());
+    map.set("ExampleV2Service", () => new ExampleV2Service());
     map.set("ExperienceAuthService", () => new ExperienceAuthService());
     map.set("ExperienceInviteOptions", () => new ExperienceInviteOptions());
     map.set("ExperienceNotificationService", () => new ExperienceNotificationService());
     map.set("ExperienceService", () => new ExperienceService());
     map.set("ExperienceStateCaptureService", () => new ExperienceStateCaptureService());
+    map.set("ExperienceStateRecordingService", () => new ExperienceStateRecordingService());
     map.set("ExplorerFilter", () => new ExplorerFilter());
     map.set("ExplorerServiceVisibilityService", () => new ExplorerServiceVisibilityService());
     map.set("Explosion", () => new Explosion());
@@ -12855,7 +13361,6 @@ function getClassMap() {
     map.set("Hole", () => new Hole());
     map.set("MotorFeature", () => new MotorFeature());
     map.set("FeatureRestrictionManager", () => new FeatureRestrictionManager());
-    map.set("FeedService", () => new FeedService());
     map.set("Fire", () => new Fire());
     map.set("FlagStandService", () => new FlagStandService());
     map.set("FloatCurve", () => new FloatCurve());
@@ -12873,7 +13378,6 @@ function getClassMap() {
     map.set("Geometry", () => new Geometry());
     map.set("GeometryService", () => new GeometryService());
     map.set("GetTextBoundsParams", () => new GetTextBoundsParams());
-    map.set("GoogleAnalyticsConfiguration", () => new GoogleAnalyticsConfiguration());
     map.set("GroupService", () => new GroupService());
     map.set("CanvasGroup", () => new CanvasGroup());
     map.set("Frame", () => new Frame());
@@ -12911,8 +13415,10 @@ function getClassMap() {
     map.set("Path2D", () => new Path2D());
     map.set("GuiService", () => new GuiService());
     map.set("GuidRegistryService", () => new GuidRegistryService());
+    map.set("HandRigDescription", () => new HandRigDescription());
     map.set("HapticEffect", () => new HapticEffect());
     map.set("HapticService", () => new HapticService());
+    map.set("HarmonyService", () => new HarmonyService());
     map.set("HeapProfilerService", () => new HeapProfilerService());
     map.set("HeatmapService", () => new HeatmapService());
     map.set("HeightmapImporterService", () => new HeightmapImporterService());
@@ -12974,6 +13480,7 @@ function getClassMap() {
     map.set("LuaWebService", () => new LuaWebService());
     map.set("LuauScriptAnalyzerService", () => new LuauScriptAnalyzerService());
     map.set("MLModelDeliveryService", () => new MLModelDeliveryService());
+    map.set("MLService", () => new MLService());
     map.set("MarkerCurve", () => new MarkerCurve());
     map.set("MarketplaceService", () => new MarketplaceService());
     map.set("MatchmakingService", () => new MatchmakingService());
@@ -12987,6 +13494,8 @@ function getClassMap() {
     map.set("MessageBusService", () => new MessageBusService());
     map.set("MessagingService", () => new MessagingService());
     map.set("MetaBreakpointManager", () => new MetaBreakpointManager());
+    map.set("MicroProfilerService", () => new MicroProfilerService());
+    map.set("ModerationService", () => new ModerationService());
     map.set("MouseService", () => new MouseService());
     map.set("NetworkClient", () => new NetworkClient());
     map.set("NetworkServer", () => new NetworkServer());
@@ -13024,6 +13533,7 @@ function getClassMap() {
     map.set("PackageUIService", () => new PackageUIService());
     map.set("PartOperationAsset", () => new PartOperationAsset());
     map.set("ParticleEmitter", () => new ParticleEmitter());
+    map.set("PartyEmulatorService", () => new PartyEmulatorService());
     map.set("PatchBundlerFileWatch", () => new PatchBundlerFileWatch());
     map.set("PathfindingLink", () => new PathfindingLink());
     map.set("PathfindingModifier", () => new PathfindingModifier());
@@ -13064,6 +13574,7 @@ function getClassMap() {
     map.set("PublishService", () => new PublishService());
     map.set("RTAnimationTracker", () => new RTAnimationTracker());
     map.set("RbxAnalyticsService", () => new RbxAnalyticsService());
+    map.set("RecommendationService", () => new RecommendationService());
     map.set("ReflectionMetadata", () => new ReflectionMetadata());
     map.set("ReflectionMetadataCallbacks", () => new ReflectionMetadataCallbacks());
     map.set("ReflectionMetadataClasses", () => new ReflectionMetadataClasses());
@@ -13077,6 +13588,7 @@ function getClassMap() {
     map.set("ReflectionMetadataProperties", () => new ReflectionMetadataProperties());
     map.set("ReflectionMetadataYieldFunctions", () => new ReflectionMetadataYieldFunctions());
     map.set("ReflectionService", () => new ReflectionService());
+    map.set("RemoteCommandService", () => new RemoteCommandService());
     map.set("RemoteCursorService", () => new RemoteCursorService());
     map.set("RemoteDebuggerServer", () => new RemoteDebuggerServer());
     map.set("RemoteFunction", () => new RemoteFunction());
@@ -13114,9 +13626,11 @@ function getClassMap() {
     map.set("ServerScriptService", () => new ServerScriptService());
     map.set("ServerStorage", () => new ServerStorage());
     map.set("ServiceVisibilityService", () => new ServiceVisibilityService());
+    map.set("SessionCheckService", () => new SessionCheckService());
     map.set("SessionService", () => new SessionService());
     map.set("SharedTableRegistry", () => new SharedTableRegistry());
     map.set("Sky", () => new Sky());
+    map.set("SlimService", () => new SlimService());
     map.set("Smoke", () => new Smoke());
     map.set("SmoothVoxelsUpgraderService", () => new SmoothVoxelsUpgraderService());
     map.set("SnippetService", () => new SnippetService());
@@ -13133,6 +13647,7 @@ function getClassMap() {
     map.set("TremoloSoundEffect", () => new TremoloSoundEffect());
     map.set("SoundGroup", () => new SoundGroup());
     map.set("SoundService", () => new SoundService());
+    map.set("SoundShimService", () => new SoundShimService());
     map.set("Sparkles", () => new Sparkles());
     map.set("SpawnerService", () => new SpawnerService());
     map.set("StandalonePluginScripts", () => new StandalonePluginScripts());
@@ -13188,6 +13703,7 @@ function getClassMap() {
     map.set("TextChatMessageProperties", () => new TextChatMessageProperties());
     map.set("BubbleChatMessageProperties", () => new BubbleChatMessageProperties());
     map.set("TextChatService", () => new TextChatService());
+    map.set("TextGenerator", () => new TextGenerator());
     map.set("TextService", () => new TextService());
     map.set("TextureGenerationService", () => new TextureGenerationService());
     map.set("ThirdPartyUserService", () => new ThirdPartyUserService());
@@ -13205,6 +13721,7 @@ function getClassMap() {
     map.set("UIAspectRatioConstraint", () => new UIAspectRatioConstraint());
     map.set("UISizeConstraint", () => new UISizeConstraint());
     map.set("UITextSizeConstraint", () => new UITextSizeConstraint());
+    map.set("UIContainerQuery", () => new UIContainerQuery());
     map.set("UICorner", () => new UICorner());
     map.set("UIDragDetector", () => new UIDragDetector());
     map.set("UIFlexItem", () => new UIFlexItem());
@@ -13255,6 +13772,7 @@ function getClassMap() {
     map.set("WebViewService", () => new WebViewService());
     map.set("WeldConstraint", () => new WeldConstraint());
     map.set("Wire", () => new Wire());
+    map.set("WrapTextureTransfer", () => new WrapTextureTransfer());
     return map;
 }
 
@@ -13317,6 +13835,16 @@ export class AdornCullingMode extends EnumItem {
     public static readonly Never = new AdornCullingMode("Never", 1);
     public static get Items() {return [AdornCullingMode.Automatic, AdornCullingMode.Never];}
     public static FromValue(value: number) {return AdornCullingMode.Items.find((item) => item._value === value);}
+}
+
+export class AdornShading extends EnumItem {
+    public static readonly Default = new AdornShading("Default", 0);
+    public static readonly Shaded = new AdornShading("Shaded", 1);
+    public static readonly XRay = new AdornShading("XRay", 2);
+    public static readonly XRayShaded = new AdornShading("XRayShaded", 3);
+    public static readonly AlwaysOnTop = new AdornShading("AlwaysOnTop", 4);
+    public static get Items() {return [AdornShading.Default, AdornShading.Shaded, AdornShading.XRay, AdornShading.XRayShaded, AdornShading.AlwaysOnTop];}
+    public static FromValue(value: number) {return AdornShading.Items.find((item) => item._value === value);}
 }
 
 export class AlignType extends EnumItem {
@@ -13431,6 +13959,13 @@ export class AudioWindowSize extends EnumItem {
     public static FromValue(value: number) {return AudioWindowSize.Items.find((item) => item._value === value);}
 }
 
+export class AuthorityMode extends EnumItem {
+    public static readonly Server = new AuthorityMode("Server", 0);
+    public static readonly Automatic = new AuthorityMode("Automatic", 1);
+    public static get Items() {return [AuthorityMode.Server, AuthorityMode.Automatic];}
+    public static FromValue(value: number) {return AuthorityMode.Items.find((item) => item._value === value);}
+}
+
 export class AutomaticSize extends EnumItem {
     public static readonly None = new AutomaticSize("None", 0);
     public static readonly X = new AutomaticSize("X", 1);
@@ -13443,7 +13978,9 @@ export class AutomaticSize extends EnumItem {
 export class AvatarSettingsAccessoryLimitMethod extends EnumItem {
     public static readonly Scale = new AvatarSettingsAccessoryLimitMethod("Scale", 0);
     public static readonly Remove = new AvatarSettingsAccessoryLimitMethod("Remove", 1);
-    public static get Items() {return [AvatarSettingsAccessoryLimitMethod.Scale, AvatarSettingsAccessoryLimitMethod.Remove];}
+    public static readonly PreviewScale = new AvatarSettingsAccessoryLimitMethod("PreviewScale", 2);
+    public static readonly PreviewRemove = new AvatarSettingsAccessoryLimitMethod("PreviewRemove", 3);
+    public static get Items() {return [AvatarSettingsAccessoryLimitMethod.Scale, AvatarSettingsAccessoryLimitMethod.Remove, AvatarSettingsAccessoryLimitMethod.PreviewScale, AvatarSettingsAccessoryLimitMethod.PreviewRemove];}
     public static FromValue(value: number) {return AvatarSettingsAccessoryLimitMethod.Items.find((item) => item._value === value);}
 }
 
@@ -13576,6 +14113,14 @@ export class BorderMode extends EnumItem {
     public static readonly Inset = new BorderMode("Inset", 2);
     public static get Items() {return [BorderMode.Outline, BorderMode.Middle, BorderMode.Inset];}
     public static FromValue(value: number) {return BorderMode.Items.find((item) => item._value === value);}
+}
+
+export class BorderStrokePosition extends EnumItem {
+    public static readonly Outer = new BorderStrokePosition("Outer", 0);
+    public static readonly Center = new BorderStrokePosition("Center", 1);
+    public static readonly Inner = new BorderStrokePosition("Inner", 2);
+    public static get Items() {return [BorderStrokePosition.Outer, BorderStrokePosition.Center, BorderStrokePosition.Inner];}
+    public static FromValue(value: number) {return BorderStrokePosition.Items.find((item) => item._value === value);}
 }
 
 export class ButtonStyle extends EnumItem {
@@ -13942,6 +14487,14 @@ export class GraphicsMode extends EnumItem {
     public static FromValue(value: number) {return GraphicsMode.Items.find((item) => item._value === value);}
 }
 
+export class HandRigDescriptionSide extends EnumItem {
+    public static readonly None = new HandRigDescriptionSide("None", 0);
+    public static readonly Left = new HandRigDescriptionSide("Left", 1);
+    public static readonly Right = new HandRigDescriptionSide("Right", 2);
+    public static get Items() {return [HandRigDescriptionSide.None, HandRigDescriptionSide.Left, HandRigDescriptionSide.Right];}
+    public static FromValue(value: number) {return HandRigDescriptionSide.Items.find((item) => item._value === value);}
+}
+
 export class HandlesStyle extends EnumItem {
     public static readonly Resize = new HandlesStyle("Resize", 0);
     public static readonly Movement = new HandlesStyle("Movement", 1);
@@ -14034,7 +14587,9 @@ export class InputActionType extends EnumItem {
     public static readonly Bool = new InputActionType("Bool", 0);
     public static readonly Direction1D = new InputActionType("Direction1D", 1);
     public static readonly Direction2D = new InputActionType("Direction2D", 2);
-    public static get Items() {return [InputActionType.Bool, InputActionType.Direction1D, InputActionType.Direction2D];}
+    public static readonly Direction3D = new InputActionType("Direction3D", 3);
+    public static readonly ViewportPosition = new InputActionType("ViewportPosition", 4);
+    public static get Items() {return [InputActionType.Bool, InputActionType.Direction1D, InputActionType.Direction2D, InputActionType.Direction3D, InputActionType.ViewportPosition];}
     public static FromValue(value: number) {return InputActionType.Items.find((item) => item._value === value);}
 }
 
@@ -14215,6 +14770,10 @@ export class KeyCode extends EnumItem {
     public static readonly DPadDown = new KeyCode("DPadDown", 1015);
     public static readonly Thumbstick1 = new KeyCode("Thumbstick1", 1016);
     public static readonly Thumbstick2 = new KeyCode("Thumbstick2", 1017);
+    public static readonly MouseLeftButton = new KeyCode("MouseLeftButton", 1018);
+    public static readonly MouseRightButton = new KeyCode("MouseRightButton", 1019);
+    public static readonly MouseMiddleButton = new KeyCode("MouseMiddleButton", 1020);
+    public static readonly MousePosition = new KeyCode("MousePosition", 1025);
     public static readonly World0 = new KeyCode("World0", 160);
     public static readonly World1 = new KeyCode("World1", 161);
     public static readonly World2 = new KeyCode("World2", 162);
@@ -14311,14 +14870,11 @@ export class KeyCode extends EnumItem {
     public static readonly World93 = new KeyCode("World93", 253);
     public static readonly World94 = new KeyCode("World94", 254);
     public static readonly World95 = new KeyCode("World95", 255);
-    public static readonly MouseLeftButton = new KeyCode("MouseLeftButton", 1018);
-    public static readonly MouseRightButton = new KeyCode("MouseRightButton", 1019);
-    public static readonly MouseMiddleButton = new KeyCode("MouseMiddleButton", 1020);
     public static readonly MouseBackButton = new KeyCode("MouseBackButton", 1021);
     public static readonly MouseNoButton = new KeyCode("MouseNoButton", 1022);
     public static readonly MouseX = new KeyCode("MouseX", 1023);
     public static readonly MouseY = new KeyCode("MouseY", 1024);
-    public static get Items() {return [KeyCode.Unknown, KeyCode.Backspace, KeyCode.Tab, KeyCode.Clear, KeyCode.Return, KeyCode.Pause, KeyCode.Escape, KeyCode.Space, KeyCode.QuotedDouble, KeyCode.Hash, KeyCode.Dollar, KeyCode.Percent, KeyCode.Ampersand, KeyCode.Quote, KeyCode.LeftParenthesis, KeyCode.RightParenthesis, KeyCode.Asterisk, KeyCode.Plus, KeyCode.Comma, KeyCode.Minus, KeyCode.Period, KeyCode.Slash, KeyCode.Zero, KeyCode.One, KeyCode.Two, KeyCode.Three, KeyCode.Four, KeyCode.Five, KeyCode.Six, KeyCode.Seven, KeyCode.Eight, KeyCode.Nine, KeyCode.Colon, KeyCode.Semicolon, KeyCode.LessThan, KeyCode.Equals, KeyCode.GreaterThan, KeyCode.Question, KeyCode.At, KeyCode.LeftBracket, KeyCode.BackSlash, KeyCode.RightBracket, KeyCode.Caret, KeyCode.Underscore, KeyCode.Backquote, KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.LeftCurly, KeyCode.Pipe, KeyCode.RightCurly, KeyCode.Tilde, KeyCode.Delete, KeyCode.KeypadZero, KeyCode.KeypadOne, KeyCode.KeypadTwo, KeyCode.KeypadThree, KeyCode.KeypadFour, KeyCode.KeypadFive, KeyCode.KeypadSix, KeyCode.KeypadSeven, KeyCode.KeypadEight, KeyCode.KeypadNine, KeyCode.KeypadPeriod, KeyCode.KeypadDivide, KeyCode.KeypadMultiply, KeyCode.KeypadMinus, KeyCode.KeypadPlus, KeyCode.KeypadEnter, KeyCode.KeypadEquals, KeyCode.Up, KeyCode.Down, KeyCode.Right, KeyCode.Left, KeyCode.Insert, KeyCode.Home, KeyCode.End, KeyCode.PageUp, KeyCode.PageDown, KeyCode.F1, KeyCode.F2, KeyCode.F3, KeyCode.F4, KeyCode.F5, KeyCode.F6, KeyCode.F7, KeyCode.F8, KeyCode.F9, KeyCode.F10, KeyCode.F11, KeyCode.F12, KeyCode.F13, KeyCode.F14, KeyCode.F15, KeyCode.NumLock, KeyCode.CapsLock, KeyCode.ScrollLock, KeyCode.RightShift, KeyCode.LeftShift, KeyCode.RightControl, KeyCode.LeftControl, KeyCode.RightAlt, KeyCode.LeftAlt, KeyCode.RightMeta, KeyCode.LeftMeta, KeyCode.LeftSuper, KeyCode.RightSuper, KeyCode.Mode, KeyCode.Compose, KeyCode.Help, KeyCode.Print, KeyCode.SysReq, KeyCode.Break, KeyCode.Menu, KeyCode.Power, KeyCode.Euro, KeyCode.Undo, KeyCode.ButtonX, KeyCode.ButtonY, KeyCode.ButtonA, KeyCode.ButtonB, KeyCode.ButtonR1, KeyCode.ButtonL1, KeyCode.ButtonR2, KeyCode.ButtonL2, KeyCode.ButtonR3, KeyCode.ButtonL3, KeyCode.ButtonStart, KeyCode.ButtonSelect, KeyCode.DPadLeft, KeyCode.DPadRight, KeyCode.DPadUp, KeyCode.DPadDown, KeyCode.Thumbstick1, KeyCode.Thumbstick2, KeyCode.World0, KeyCode.World1, KeyCode.World2, KeyCode.World3, KeyCode.World4, KeyCode.World5, KeyCode.World6, KeyCode.World7, KeyCode.World8, KeyCode.World9, KeyCode.World10, KeyCode.World11, KeyCode.World12, KeyCode.World13, KeyCode.World14, KeyCode.World15, KeyCode.World16, KeyCode.World17, KeyCode.World18, KeyCode.World19, KeyCode.World20, KeyCode.World21, KeyCode.World22, KeyCode.World23, KeyCode.World24, KeyCode.World25, KeyCode.World26, KeyCode.World27, KeyCode.World28, KeyCode.World29, KeyCode.World30, KeyCode.World31, KeyCode.World32, KeyCode.World33, KeyCode.World34, KeyCode.World35, KeyCode.World36, KeyCode.World37, KeyCode.World38, KeyCode.World39, KeyCode.World40, KeyCode.World41, KeyCode.World42, KeyCode.World43, KeyCode.World44, KeyCode.World45, KeyCode.World46, KeyCode.World47, KeyCode.World48, KeyCode.World49, KeyCode.World50, KeyCode.World51, KeyCode.World52, KeyCode.World53, KeyCode.World54, KeyCode.World55, KeyCode.World56, KeyCode.World57, KeyCode.World58, KeyCode.World59, KeyCode.World60, KeyCode.World61, KeyCode.World62, KeyCode.World63, KeyCode.World64, KeyCode.World65, KeyCode.World66, KeyCode.World67, KeyCode.World68, KeyCode.World69, KeyCode.World70, KeyCode.World71, KeyCode.World72, KeyCode.World73, KeyCode.World74, KeyCode.World75, KeyCode.World76, KeyCode.World77, KeyCode.World78, KeyCode.World79, KeyCode.World80, KeyCode.World81, KeyCode.World82, KeyCode.World83, KeyCode.World84, KeyCode.World85, KeyCode.World86, KeyCode.World87, KeyCode.World88, KeyCode.World89, KeyCode.World90, KeyCode.World91, KeyCode.World92, KeyCode.World93, KeyCode.World94, KeyCode.World95, KeyCode.MouseLeftButton, KeyCode.MouseRightButton, KeyCode.MouseMiddleButton, KeyCode.MouseBackButton, KeyCode.MouseNoButton, KeyCode.MouseX, KeyCode.MouseY];}
+    public static get Items() {return [KeyCode.Unknown, KeyCode.Backspace, KeyCode.Tab, KeyCode.Clear, KeyCode.Return, KeyCode.Pause, KeyCode.Escape, KeyCode.Space, KeyCode.QuotedDouble, KeyCode.Hash, KeyCode.Dollar, KeyCode.Percent, KeyCode.Ampersand, KeyCode.Quote, KeyCode.LeftParenthesis, KeyCode.RightParenthesis, KeyCode.Asterisk, KeyCode.Plus, KeyCode.Comma, KeyCode.Minus, KeyCode.Period, KeyCode.Slash, KeyCode.Zero, KeyCode.One, KeyCode.Two, KeyCode.Three, KeyCode.Four, KeyCode.Five, KeyCode.Six, KeyCode.Seven, KeyCode.Eight, KeyCode.Nine, KeyCode.Colon, KeyCode.Semicolon, KeyCode.LessThan, KeyCode.Equals, KeyCode.GreaterThan, KeyCode.Question, KeyCode.At, KeyCode.LeftBracket, KeyCode.BackSlash, KeyCode.RightBracket, KeyCode.Caret, KeyCode.Underscore, KeyCode.Backquote, KeyCode.A, KeyCode.B, KeyCode.C, KeyCode.D, KeyCode.E, KeyCode.F, KeyCode.G, KeyCode.H, KeyCode.I, KeyCode.J, KeyCode.K, KeyCode.L, KeyCode.M, KeyCode.N, KeyCode.O, KeyCode.P, KeyCode.Q, KeyCode.R, KeyCode.S, KeyCode.T, KeyCode.U, KeyCode.V, KeyCode.W, KeyCode.X, KeyCode.Y, KeyCode.Z, KeyCode.LeftCurly, KeyCode.Pipe, KeyCode.RightCurly, KeyCode.Tilde, KeyCode.Delete, KeyCode.KeypadZero, KeyCode.KeypadOne, KeyCode.KeypadTwo, KeyCode.KeypadThree, KeyCode.KeypadFour, KeyCode.KeypadFive, KeyCode.KeypadSix, KeyCode.KeypadSeven, KeyCode.KeypadEight, KeyCode.KeypadNine, KeyCode.KeypadPeriod, KeyCode.KeypadDivide, KeyCode.KeypadMultiply, KeyCode.KeypadMinus, KeyCode.KeypadPlus, KeyCode.KeypadEnter, KeyCode.KeypadEquals, KeyCode.Up, KeyCode.Down, KeyCode.Right, KeyCode.Left, KeyCode.Insert, KeyCode.Home, KeyCode.End, KeyCode.PageUp, KeyCode.PageDown, KeyCode.F1, KeyCode.F2, KeyCode.F3, KeyCode.F4, KeyCode.F5, KeyCode.F6, KeyCode.F7, KeyCode.F8, KeyCode.F9, KeyCode.F10, KeyCode.F11, KeyCode.F12, KeyCode.F13, KeyCode.F14, KeyCode.F15, KeyCode.NumLock, KeyCode.CapsLock, KeyCode.ScrollLock, KeyCode.RightShift, KeyCode.LeftShift, KeyCode.RightControl, KeyCode.LeftControl, KeyCode.RightAlt, KeyCode.LeftAlt, KeyCode.RightMeta, KeyCode.LeftMeta, KeyCode.LeftSuper, KeyCode.RightSuper, KeyCode.Mode, KeyCode.Compose, KeyCode.Help, KeyCode.Print, KeyCode.SysReq, KeyCode.Break, KeyCode.Menu, KeyCode.Power, KeyCode.Euro, KeyCode.Undo, KeyCode.ButtonX, KeyCode.ButtonY, KeyCode.ButtonA, KeyCode.ButtonB, KeyCode.ButtonR1, KeyCode.ButtonL1, KeyCode.ButtonR2, KeyCode.ButtonL2, KeyCode.ButtonR3, KeyCode.ButtonL3, KeyCode.ButtonStart, KeyCode.ButtonSelect, KeyCode.DPadLeft, KeyCode.DPadRight, KeyCode.DPadUp, KeyCode.DPadDown, KeyCode.Thumbstick1, KeyCode.Thumbstick2, KeyCode.MouseLeftButton, KeyCode.MouseRightButton, KeyCode.MouseMiddleButton, KeyCode.MousePosition, KeyCode.World0, KeyCode.World1, KeyCode.World2, KeyCode.World3, KeyCode.World4, KeyCode.World5, KeyCode.World6, KeyCode.World7, KeyCode.World8, KeyCode.World9, KeyCode.World10, KeyCode.World11, KeyCode.World12, KeyCode.World13, KeyCode.World14, KeyCode.World15, KeyCode.World16, KeyCode.World17, KeyCode.World18, KeyCode.World19, KeyCode.World20, KeyCode.World21, KeyCode.World22, KeyCode.World23, KeyCode.World24, KeyCode.World25, KeyCode.World26, KeyCode.World27, KeyCode.World28, KeyCode.World29, KeyCode.World30, KeyCode.World31, KeyCode.World32, KeyCode.World33, KeyCode.World34, KeyCode.World35, KeyCode.World36, KeyCode.World37, KeyCode.World38, KeyCode.World39, KeyCode.World40, KeyCode.World41, KeyCode.World42, KeyCode.World43, KeyCode.World44, KeyCode.World45, KeyCode.World46, KeyCode.World47, KeyCode.World48, KeyCode.World49, KeyCode.World50, KeyCode.World51, KeyCode.World52, KeyCode.World53, KeyCode.World54, KeyCode.World55, KeyCode.World56, KeyCode.World57, KeyCode.World58, KeyCode.World59, KeyCode.World60, KeyCode.World61, KeyCode.World62, KeyCode.World63, KeyCode.World64, KeyCode.World65, KeyCode.World66, KeyCode.World67, KeyCode.World68, KeyCode.World69, KeyCode.World70, KeyCode.World71, KeyCode.World72, KeyCode.World73, KeyCode.World74, KeyCode.World75, KeyCode.World76, KeyCode.World77, KeyCode.World78, KeyCode.World79, KeyCode.World80, KeyCode.World81, KeyCode.World82, KeyCode.World83, KeyCode.World84, KeyCode.World85, KeyCode.World86, KeyCode.World87, KeyCode.World88, KeyCode.World89, KeyCode.World90, KeyCode.World91, KeyCode.World92, KeyCode.World93, KeyCode.World94, KeyCode.World95, KeyCode.MouseBackButton, KeyCode.MouseNoButton, KeyCode.MouseX, KeyCode.MouseY];}
     public static FromValue(value: number) {return KeyCode.Items.find((item) => item._value === value);}
 }
 
@@ -14368,6 +14924,14 @@ export class LoadDynamicHeads extends EnumItem {
     public static readonly Enabled = new LoadDynamicHeads("Enabled", 2);
     public static get Items() {return [LoadDynamicHeads.Default, LoadDynamicHeads.Disabled, LoadDynamicHeads.Enabled];}
     public static FromValue(value: number) {return LoadDynamicHeads.Items.find((item) => item._value === value);}
+}
+
+export class LuauTypeCheckMode extends EnumItem {
+    public static readonly NoCheck = new LuauTypeCheckMode("NoCheck", 0);
+    public static readonly Nonstrict = new LuauTypeCheckMode("Nonstrict", 1);
+    public static readonly Strict = new LuauTypeCheckMode("Strict", 2);
+    public static get Items() {return [LuauTypeCheckMode.NoCheck, LuauTypeCheckMode.Nonstrict, LuauTypeCheckMode.Strict];}
+    public static FromValue(value: number) {return LuauTypeCheckMode.Items.find((item) => item._value === value);}
 }
 
 export class Material extends EnumItem {
@@ -14511,6 +15075,14 @@ export class NameOcclusion extends EnumItem {
     public static readonly OccludeAll = new NameOcclusion("OccludeAll", 2);
     public static get Items() {return [NameOcclusion.NoOcclusion, NameOcclusion.EnemyOcclusion, NameOcclusion.OccludeAll];}
     public static FromValue(value: number) {return NameOcclusion.Items.find((item) => item._value === value);}
+}
+
+export class NegateOperationHiddenHistory extends EnumItem {
+    public static readonly None = new NegateOperationHiddenHistory("None", 0);
+    public static readonly NegatedUnion = new NegateOperationHiddenHistory("NegatedUnion", 1);
+    public static readonly NegatedIntersection = new NegateOperationHiddenHistory("NegatedIntersection", 2);
+    public static get Items() {return [NegateOperationHiddenHistory.None, NegateOperationHiddenHistory.NegatedUnion, NegateOperationHiddenHistory.NegatedIntersection];}
+    public static FromValue(value: number) {return NegateOperationHiddenHistory.Items.find((item) => item._value === value);}
 }
 
 export class NoiseType extends EnumItem {
@@ -14972,6 +15544,13 @@ export class StreamingIntegrityMode extends EnumItem {
     public static FromValue(value: number) {return StreamingIntegrityMode.Items.find((item) => item._value === value);}
 }
 
+export class StrokeSizingMode extends EnumItem {
+    public static readonly FixedSize = new StrokeSizingMode("FixedSize", 0);
+    public static readonly ScaledSize = new StrokeSizingMode("ScaledSize", 1);
+    public static get Items() {return [StrokeSizingMode.FixedSize, StrokeSizingMode.ScaledSize];}
+    public static FromValue(value: number) {return StrokeSizingMode.Items.find((item) => item._value === value);}
+}
+
 export class Style extends EnumItem {
     public static readonly AlternatingSupports = new Style("AlternatingSupports", 0);
     public static readonly BridgeStyleSupports = new Style("BridgeStyleSupports", 1);
@@ -15414,8 +15993,13 @@ function getEnumMap() {
     map.set("AdGui,AdShape", AdShape.FromValue);
     map.set("SurfaceGui,SizingMode", SurfaceGuiSizingMode.FromValue);
     map.set("HandleAdornment,AdornCullingMode", AdornCullingMode.FromValue);
+    map.set("BoxHandleAdornment,Shading", AdornShading.FromValue);
+    map.set("ConeHandleAdornment,Shading", AdornShading.FromValue);
+    map.set("CylinderHandleAdornment,Shading", AdornShading.FromValue);
+    map.set("SphereHandleAdornment,Shading", AdornShading.FromValue);
     map.set("Handles,Style", HandlesStyle.FromValue);
     map.set("SurfaceSelection,TargetSurface", NormalId.FromValue);
+    map.set("HandRigDescription,Side", HandRigDescriptionSide.FromValue);
     map.set("HapticEffect,Type", HapticEffectType.FromValue);
     map.set("Highlight,DepthMode", HighlightDepthMode.FromValue);
     map.set("Humanoid,CollisionType", HumanoidCollisionType.FromValue);
@@ -15425,13 +16009,16 @@ function getEnumMap() {
     map.set("Humanoid,RigType", HumanoidRigType.FromValue);
     map.set("IKControl,Type", IKControlType.FromValue);
     map.set("InputAction,Type", InputActionType.FromValue);
+    map.set("InputBinding,Backward", KeyCode.FromValue);
     map.set("InputBinding,Down", KeyCode.FromValue);
+    map.set("InputBinding,Forward", KeyCode.FromValue);
     map.set("InputBinding,KeyCode", KeyCode.FromValue);
     map.set("InputBinding,Left", KeyCode.FromValue);
     map.set("InputBinding,Right", KeyCode.FromValue);
     map.set("InputBinding,Up", KeyCode.FromValue);
     map.set("SpotLight,Face", NormalId.FromValue);
     map.set("SurfaceLight,Face", NormalId.FromValue);
+    map.set("Lighting,ExtendLightRangeTo120", RolloutState.FromValue);
     map.set("Lighting,LightingStyle", LightingStyle.FromValue);
     map.set("Lighting,Technology", Technology.FromValue);
     map.set("BaseScript,RunContext", RunContext.FromValue);
@@ -15460,16 +16047,19 @@ function getEnumMap() {
     map.set("MeshPart,RenderFidelity", RenderFidelity.FromValue);
     map.set("PartOperation,FormFactor", FormFactor.FromValue);
     map.set("PartOperation,RenderFidelity", RenderFidelity.FromValue);
+    map.set("NegateOperation,PreviousOperation", NegateOperationHiddenHistory.FromValue);
     map.set("TrussPart,style", Style.FromValue);
     map.set("Camera,CameraType", CameraType.FromValue);
     map.set("Camera,FieldOfViewMode", FieldOfViewMode.FromValue);
     map.set("Model,LevelOfDetail", ModelLevelOfDetail.FromValue);
     map.set("Model,ModelStreamingMode", ModelStreamingMode.FromValue);
     map.set("HopperBin,BinType", BinType.FromValue);
+    map.set("Workspace,AuthorityMode", AuthorityMode.FromValue);
     map.set("Workspace,AvatarUnificationMode", AvatarUnificationMode.FromValue);
     map.set("Workspace,ClientAnimatorThrottling", ClientAnimatorThrottlingMode.FromValue);
     map.set("Workspace,FluidForces", FluidForces.FromValue);
     map.set("Workspace,IKControlConstraintSupport", IKControlConstraintSupport.FromValue);
+    map.set("Workspace,LuauTypeCheckMode", LuauTypeCheckMode.FromValue);
     map.set("Workspace,MeshPartHeadsAndAccessories", MeshPartHeadsAndAccessories.FromValue);
     map.set("Workspace,ModelStreamingBehavior", ModelStreamingBehavior.FromValue);
     map.set("Workspace,MoverConstraintRootBehavior", MoverConstraintRootBehaviorMode.FromValue);
@@ -15487,6 +16077,8 @@ function getEnumMap() {
     map.set("Workspace,StreamOutBehavior", StreamOutBehavior.FromValue);
     map.set("Workspace,StreamingIntegrityMode", StreamingIntegrityMode.FromValue);
     map.set("Workspace,TouchEventsUseCollisionGroups", RolloutState.FromValue);
+    map.set("Workspace,UseImprovedModelLod", RolloutState.FromValue);
+    map.set("Workspace,UseNewLuauTypeSolver", RolloutState.FromValue);
     map.set("ParticleEmitter,EmissionDirection", NormalId.FromValue);
     map.set("ParticleEmitter,FlipbookLayout", ParticleFlipbookLayout.FromValue);
     map.set("ParticleEmitter,FlipbookMode", ParticleFlipbookMode.FromValue);
@@ -15523,6 +16115,7 @@ function getEnumMap() {
     map.set("Sound,RollOffMode", RollOffMode.FromValue);
     map.set("SoundService,AmbientReverb", ReverbType.FromValue);
     map.set("SoundService,AudioApiByDefault", RolloutState.FromValue);
+    map.set("SoundService,AudioPlayerVolumeFix", RolloutState.FromValue);
     map.set("SoundService,CharacterSoundsUseNewApi", RolloutState.FromValue);
     map.set("SoundService,DefaultListenerLocation", ListenerLocation.FromValue);
     map.set("SoundService,VolumetricAudio", VolumetricAudio.FromValue);
@@ -15570,7 +16163,9 @@ function getEnumMap() {
     map.set("UIPageLayout,EasingStyle", EasingStyle.FromValue);
     map.set("UITableLayout,MajorAxis", TableMajorAxis.FromValue);
     map.set("UIStroke,ApplyStrokeMode", ApplyStrokeMode.FromValue);
+    map.set("UIStroke,BorderStrokePosition", BorderStrokePosition.FromValue);
     map.set("UIStroke,LineJoinMode", LineJoinMode.FromValue);
+    map.set("UIStroke,StrokeSizingMode", StrokeSizingMode.FromValue);
     map.set("UserInputService,MouseBehavior", MouseBehavior.FromValue);
     map.set("VRService,AutomaticScaling", VRScaling.FromValue);
     map.set("VRService,ControllerModels", VRControllerModelMode.FromValue);

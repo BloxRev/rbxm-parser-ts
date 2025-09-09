@@ -3,12 +3,12 @@
  * Contains the core classes for writing a .rbxm file.
  */
 
-import lz4 from "lz4";
 import { RobloxFile } from "./roblox_file";
 import { DataType, CoreInstance, RobloxValue } from "./roblox_types";
 import { ChunkType, DataParserExtraInfo, RobloxClass, RobloxFileDOM } from "./roblox_file_dom";
 import { RobloxFileByteWriter } from "./roblox_file_bytes";
 import { ClassMap } from "../generated/generated_types";
+import { compress } from "lz4js";
 
 type PropValue = {
     name: string
@@ -204,13 +204,15 @@ export class RobloxFileDOMWriter extends RobloxFileDOM
             };
         }
 
-        const bytes = Buffer.alloc(lz4.encodeBound(data.length));
-        const size = lz4.encodeBlock(Buffer.from(data), bytes);
+        const compressedData = compress(data)
+        const bytes = Buffer.alloc(compressedData.length);
+        
+        bytes.set(compressedData)
 
         return {
-            compressedLength: size,
+            compressedLength: bytes.length,
             uncompressedLength: data.length,
-            bytes: bytes.subarray(0, size)
+            bytes: bytes.subarray(0, bytes.length)
         };
     }
 
